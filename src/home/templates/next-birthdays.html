@@ -1,9 +1,11 @@
 <table ng-table="vm.table" class="table table-striped" show-filter="true">
-    <tr ng-repeat="bday in $data">
+    <tr ng-repeat="bday in $data" >
         
         <td title="'Who'" filter="{completeName : 'text'}" sortable="'completeName'">
             {{bday.completeName}}</td>
         <td title="'When'" filter="{date: 'text'}" sortable="'date'">
             {{bday.date | date : 'MMM dd'}}</td>
+        <td title="'Has Envelope'" filter="{envelope: 'text'}" sortable="'envelope'">
+            <span class="{{bday.envelope}}"></span></td>
     </tr>
 </table>
