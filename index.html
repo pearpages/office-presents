@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Office Presents</title>
+
+    <!-- vendor -->
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
+
+    <! src -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!--vendor -->
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+    <!-- source -->
+    <script type="text/javascript" src="src/main.module.js"></script>
+    <script type="text/javascript" src="src/common/menu/menu.directive.js"></script>
+    <script type="text/javascript" src="src/home/Home.controller.js"></script>
+    <script type="text/javascript" src="src/birthdays/birthday.value.js"></script>
+    <script type="text/javascript" src="src/birthdays/birthdays.factory.js"></script>
+</head>
+<body ng-app="office-presents">
+    <office-menu></office-menu>
+
+    <div ui-view class="main container">
+        
+    </div>
+</body>
+</html>

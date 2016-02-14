@@ -1,0 +1,14 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Who</th>
+            <th>When</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="bday in vm.birthdays">
+            <td>{{bday.completeName}}</td>
+            <td>{{bday.getDate() | date : 'MMM dd'}}</td>    
+        </tr>
+    </tbody>
+</table>
