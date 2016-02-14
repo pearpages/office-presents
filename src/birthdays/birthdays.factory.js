@@ -11,7 +11,8 @@
         init();
 
         return {
-            getBirthdays: getBirthdays
+            getBirthdays: getBirthdays,
+            getObjects: getObjects
         };
 
         function init() {
@@ -22,6 +23,15 @@
 
         function getBirthdays() {
             return birthdays;
+        }
+
+        function getObjects() {
+            var results = [];
+            for (var i = 0; i < birthdays.length; i++) {
+                results.push(birthdays[i].toObject());
+            }
+
+            return results;
         }
 
         function mockBirthdays() {

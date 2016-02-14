@@ -2,13 +2,14 @@
     'use strict';
 
     angular.module("office-presents")
-    .controller('HomeController',['birthdays',HomeController]);
+    .controller('HomeController',['birthdays','NgTableParams',HomeController]);
 
-    function HomeController(birthdays) {
+    function HomeController(birthdays,NgTableParams) {
 
         var vm = this;
 
-        vm.birthdays = birthdays.getBirthdays();
+        vm.table = new NgTableParams({page:1,count: birthdays.getObjects().length},{data: birthdays.getObjects()});;
+
     }
 
 })();

@@ -1,14 +1,9 @@
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Who</th>
-            <th>When</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="bday in vm.birthdays">
-            <td>{{bday.completeName}}</td>
-            <td>{{bday.getDate() | date : 'MMM dd'}}</td>    
-        </tr>
-    </tbody>
+<table ng-table="vm.table" class="table table-striped" show-filter="true">
+    <tr ng-repeat="bday in $data">
+        
+        <td title="'Who'" filter="{completeName : 'text'}" sortable="'completeName'">
+            {{bday.completeName}}</td>
+        <td title="'When'" filter="{date: 'text'}" sortable="'date'">
+            {{bday.date | date : 'MMM dd'}}</td>
+    </tr>
 </table>

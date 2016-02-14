@@ -1,0 +1,21 @@
+{
+  "name": "office-presents",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "pearpages <pere@soms.cat>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/pearpages/office-presents",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-table": "^0.8.3"
+  }
+}
