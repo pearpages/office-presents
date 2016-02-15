@@ -1,3 +1,6 @@
 .main {
     margin-top:80px;
 }
+.crossed td{
+	text-decoration: line-through;
+}

@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module("office-presents")
-    .directive('officeMenu',[officeMenu]);
+    .directive('officeMenu',['currentUser',officeMenu]);
 
-    function officeMenu() {
+    function officeMenu(currentUser) {
         return {
                 restrict: 'E',
                 bindToController: true,
@@ -22,10 +22,12 @@
             function controller() {
                 var vmd = this;
         
+                vmd.user;
+
                 activate();
         
                 function activate() {
-                    
+                    vmd.user = currentUser.getUser();
                 }
             }
     }

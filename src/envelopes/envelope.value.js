@@ -13,8 +13,19 @@
     Envelope.prototype.nextId = {id: 0};
 
     Envelope.prototype.hasContributor = function (contributor) {
-        return this.contributors.indexof(contributor) === -1 ? false : true;
+        return this.contributors.indexOf(contributor) === -1 ? false : true;
     };
+
+    Envelope.prototype.addContributor = function (contributor) {
+        this.contributors.push(contributor);
+    };
+
+    Envelope.prototype.removeContributor = function (contributor) {
+        var i = this.contributors.indexOf(contributor);
+        if(i !== -1){
+            this.contributors.splice(i,1);
+        }
+    }
 
     angular.module("office-presents")
     .value('Envelope',Envelope);

@@ -1,5 +1,5 @@
 <table ng-table="vm.envelopes" class="table table-striped" show-filter="true">
-    <tr ng-repeat="e in $data" >
+    <tr ng-class="e.hasContributor(vm.user) ? 'crossed' : ''" ng-repeat="e in $data" envelope-id="{{e._id}}">
         
         <td title="'What'" filter="{what : 'text'}" sortable="'what'">
             {{e.what}}</td>
@@ -10,6 +10,8 @@
         <td title="'Where'" filter="{where: 'text'}" sortable="'where'">
             {{e.where}}</td>
         <td title="'Contributed'" filter="{contributed: 'text'}" sortable="'contributed'">
-            {{e._id}}</td>
+            <span ng-click="vm.addContributor(e,vm.user)" class="btn btn-default" ng-show="!e.hasContributor(vm.user)">Yes</span>
+            <span ng-click="vm.removeContributor(e,vm.user)" class="btn btn-default" ng-show="e.hasContributor(vm.user)">No</span>
+        </td>
     </tr>
 </table>
