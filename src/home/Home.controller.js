@@ -18,7 +18,8 @@
 
         function activate() {
         	vm.user = currentUser.getUser();	
-        	vm.birthdays = new NgTableParams({page:1,count: birthdays.getObjects().length},{data: birthdays.getObjects()});
+
+        	vm.birthdays = new NgTableParams({page:1,count: birthdays.getAll().length},{data: birthdays.getAll()});
         	vm.envelopes = new NgTableParams({page:1,count: envelopes.getOpenEnvelopes().length},{data: envelopes.getOpenEnvelopes()});
         } 
 

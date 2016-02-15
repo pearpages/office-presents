@@ -2,10 +2,9 @@
     <tr ng-repeat="bday in $data" >
         
         <td title="'Who'" filter="{completeName : 'text'}" sortable="'completeName'">
-            {{bday.completeName}}</td>
+            {{bday.user.name}}</td>
         <td title="'When'" filter="{date: 'text'}" sortable="'date'">
             {{bday.date | date : 'MMM dd'}}</td>
-        <td title="'Has Envelope'" filter="{envelope: 'text'}" sortable="'envelope'">
-            <span class="{{bday.envelope}}"></span></td>
+        <td title="'Has Envelope'" filter="{envelope: 'text'}" sortable="'envelope'">{{bday.envelope}}</td>
     </tr>
 </table>
