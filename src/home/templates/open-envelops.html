@@ -1,20 +1,15 @@
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>What</th>
-            <th>Who</th>
-            <th>Last Day</th>
-            <th>Where</th>
-            <th>Contributed</th>
-        </tr>
-    </thead>
-    <tbody>
-       <tr ng-repeat="envelope in vm.envelopes">
-           <td>{{envelope.what}}</td>
-           <td>{{envelope.who}}</td>
-           <td>{{envelope.lastDay | date : 'MMM dd'}}</td>
-           <td>{{envelope.where}}</td>
-           <td>X</td>
-       </tr>
-    </tbody>
+<table ng-table="vm.envelopes" class="table table-striped" show-filter="true">
+    <tr ng-repeat="e in $data" >
+        
+        <td title="'What'" filter="{what : 'text'}" sortable="'what'">
+            {{e.what}}</td>
+        <td title="'Who'" filter="{who: 'text'}" sortable="'who'">
+            {{e.who}}</td>
+        <td title="'Last Day'" filter="{lastDay: 'text'}" sortable="'lastDay'">
+            {{e.lastDay | date : 'MMM dd'}}</td>
+        <td title="'Where'" filter="{where: 'text'}" sortable="'where'">
+            {{e.where}}</td>
+        <td title="'Contributed'" filter="{contributed: 'text'}" sortable="'contributed'">
+            {{e._id}}</td>
+    </tr>
 </table>

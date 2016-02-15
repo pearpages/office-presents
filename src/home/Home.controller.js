@@ -8,9 +8,10 @@
 
         var vm = this;
 
-        vm.birthdays = new NgTableParams({page:1,count: birthdays.getObjects().length},{data: birthdays.getObjects()});;
+        vm.birthdays = new NgTableParams({page:1,count: birthdays.getObjects().length},{data: birthdays.getObjects()});
 
-        vm.envelopes = envelopes.getOpenEnvelopes();
+        vm.envelopes = new NgTableParams({page:1,count: envelopes.getOpenEnvelopes().length},{data: envelopes.getOpenEnvelopes()});
+        console.log(vm.envelopes);
     }
 
 })();
