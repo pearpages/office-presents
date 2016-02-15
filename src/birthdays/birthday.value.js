@@ -4,7 +4,7 @@
     var Birthday = function(completeName) {
         this.month = Math.ceil(Math.random() * 12);
         this.day = Math.ceil(Math.random() * 31);
-        this.hasEnvelope = Math.ceil(Math.random() * 2)  === 2 ? true : false;
+        this.hasEnvelope = Math.ceil(Math.random() * 4)  === 4 ? true : false;
         this.completeName = completeName;
     };
 

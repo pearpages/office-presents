@@ -9,47 +9,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Birthday</td>
-            <td>John Andrews</td>
-            <td>April - 1</td>
-            <td>Lucia's Desk</td>
-            <td><input type="checkbox" value="1"></td>
-        </tr>
-        <tr>
-            <td>Birthday</td>
-            <td>John Andrews</td>
-            <td>April - 1</td>
-            <td>Lucia's Desk</td>
-            <td><input type="checkbox" value="1"></td>
-        </tr>        
-        <tr>
-            <td>Birthday</td>
-            <td>John Andrews</td>
-            <td>April - 1</td>
-            <td>Lucia's Desk</td>
-            <td><input type="checkbox" value="1"></td>
-        </tr>
-        <tr>
-            <td>Birthday</td>
-            <td>John Andrews</td>
-            <td>April - 1</td>
-            <td>Lucia's Desk</td>
-            <td><input type="checkbox" value="1"></td>
-        </tr>
-        <tr>
-            <td>Birthday</td>
-            <td>John Andrews</td>
-            <td>April - 1</td>
-            <td>Lucia's Desk</td>
-            <td><input type="checkbox" value="1"></td>
-        </tr>
-        <tr>
-            <td>Birthday</td>
-            <td>John Andrews</td>
-            <td>April - 1</td>
-            <td>Lucia's Desk</td>
-            <td><input type="checkbox" value="1"></td>
-        </tr>                
+       <tr ng-repeat="envelope in vm.envelopes">
+           <td>{{envelope.what}}</td>
+           <td>{{envelope.who}}</td>
+           <td>{{envelope.lastDay | date : 'MMM dd'}}</td>
+           <td>{{envelope.where}}</td>
+           <td>X</td>
+       </tr>
     </tbody>
 </table>
