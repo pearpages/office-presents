@@ -4,6 +4,7 @@
     var Envelope = function (what,who,lastDay,where) {
         this._id = ++this.nextId.id;
         this.what = what;
+        console.log(who);
         this.who = who;
         this.lastDay = lastDay;
         this.where = where;

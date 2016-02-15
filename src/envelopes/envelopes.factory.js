@@ -19,7 +19,7 @@
                 for (var i = 0; i < bdays.length; i++) {
                     var bday = bdays[i];
                     if(bday.envelope !== ''){
-                        envelopes.push(new Envelope('Birthday',bday.user.name,new Date(bday.date + (14*3600*24)),'Some random desk'));    
+                        envelopes.push(new Envelope('Birthday',bday.user,new Date(bday.date + (14*3600*24)),'Some random desk'));    
                     }
                 }
 
