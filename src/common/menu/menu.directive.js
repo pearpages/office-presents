@@ -21,13 +21,20 @@
                 var vmd = this;
         
                 vmd.user;
-                vmd.mockUser;
+                vmd.showAs = showAs;
 
                 activate();
         
                 function activate() {
                     vmd.user = currentUser.getUser();
-                    vmd.mockUser = currentUser;
+                }
+
+                function showAs() {
+                    if(currentUser.getShowAs() === undefined) {
+                        return currentUser.getUser().name;
+                    } else {
+                        return currentUser.getShowAs().name;
+                    }
                 }
             }
     }
