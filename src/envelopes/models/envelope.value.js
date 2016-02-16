@@ -35,7 +35,7 @@
         }
     }
 
-    angular.module("office-presents")
+    angular.module("myEnvelopes")
     .value('Envelope',Envelope);
 
 })();

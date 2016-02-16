@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module("office-presents")
+    angular.module("myEnvelopes")
     .factory('envelopes',['Envelope',envelopes]);
 
     function envelopes(Envelope) {
@@ -10,6 +10,7 @@
 
         return {
             getOpenEnvelopes: getOpenEnvelopes,
+            getEnvelope: getEnvelope,
             make: make
         };
 
@@ -21,6 +22,20 @@
                 }
             }
             return result;
+        }
+
+        /**
+         * 
+         * @param  {String} id
+         * @return {Envelope}
+         */
+        function getEnvelope(id) {
+            for (var i = envelopes.length - 1; i >= 0; i--) {
+                if(envelopes[i]._id == id) {
+                    return envelopes[i];
+                }
+            }
+            return null;
         }
 
         function make(what,who,lastDay,where) {
