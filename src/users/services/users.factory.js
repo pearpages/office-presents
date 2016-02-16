@@ -181,8 +181,8 @@
 
             for (var i = names.length - 1; i >= 0; i--) {
                 var id = names[i].replace(/\s/g, '');
-                var user = new User(id,names[i]);
                 var bdayDate = mockDate();
+                var user = new User(id,names[i],bdayDate);
                 var envelope = mockEnvelope(user,bdayDate);
            		users.push(user);
                 user.bdays.push(birthdays.make(user,bdayDate,envelope));
