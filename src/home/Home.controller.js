@@ -9,8 +9,8 @@
         var vm = this;
 
         vm.birthdays;
-        vm.envelopes;        
-        vm.user;
+        vm.envelopes;
+        vm.user;        
         vm.addContributor = addContributor;
         vm.removeContributor = removeContributor;
         vm.hasEnvelope = hasEnvelope;
@@ -18,18 +18,18 @@
         activate();
 
         function activate() {
-        	vm.user = currentUser.getUser();	
+        	vm.user = currentUser;	
 
         	vm.birthdays = new NgTableParams({page:1,count: birthdays.getAll().length},{data: birthdays.getAll()});
         	vm.envelopes = new NgTableParams({page:1,count: envelopes.getOpenEnvelopes().length},{data: envelopes.getOpenEnvelopes()});
         } 
 
         function addContributor(envelope,user) {
-        	envelope.addContributor(user);
+        	envelope.addContributor(currentUser.get());
         }
 
         function removeContributor(envelope,user) {
-        	envelope.removeContributor(user);
+        	envelope.removeContributor(currentUser.get());
         }
         
         function hasEnvelope(envelope) {

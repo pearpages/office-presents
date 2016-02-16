@@ -1,1 +1,40 @@
-{{vm.envelope}}
+<div class="row">
+    <div class="col-md-6">
+    <h4>Information</h4>
+<table class="table table-striped">
+    <tr>
+        <td>What</td>
+        <td>{{vm.envelope.what}}</td>
+    </tr>
+    <tr>
+        <td>Who</td>
+        <td>{{vm.envelope.who.name}}</td>
+    </tr>
+    <tr>
+        <td>Last Day</td>
+        <td>{{vm.envelope.lastDay | date : 'yyyy MMM dd'}}</td>
+    </tr>
+    <tr>
+        <td>Where</td>
+        <td>{{vm.envelope.where}}</td>
+    </tr>
+    <tr>
+        <td>Created by</td>
+        <td>{{vm.envelope.responsible.name}}</td>
+    </tr>
+</table>        
+    </div>
+    <div class="col-md-6">
+        <h4>Contributors</h4>
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+            <tbody>
+                <tr ng-repeat="contributor in vm.envelope.contributors"><td>{{contributor.name}}</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>

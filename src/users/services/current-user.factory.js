@@ -13,7 +13,8 @@
 		return {
 			getUser: getUser,
 			setShowAs: setShowAs,
-			getShowAs: getShowAs
+			getShowAs: getShowAs,
+			get: get
 		};
 
 		function init() {
@@ -32,6 +33,14 @@
 
 		function getShowAs() {
 			return mockUser;
+		}
+
+		function get() {
+			if(mockUser !== undefined) {
+				return mockUser;
+			} else {
+				return currentUser;
+			}
 		}
 
 		function getUser() {
