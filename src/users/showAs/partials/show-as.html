@@ -1,1 +1,11 @@
-xxxx
+<div class="col-md-6">
+	<form>
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">User</label>
+	    <select class="form-control" ng-model="vm.userid">
+  			<option ng-repeat="user in vm.users" value="{{user.id}}" ng-selected="{{user.id === vm.userid}}">{{user.name}}</option>
+		</select>
+	  </div>
+	  <button ng-click="vm.showAs()" class="btn btn-primary">Submit</button>
+	</form>	
+</div>

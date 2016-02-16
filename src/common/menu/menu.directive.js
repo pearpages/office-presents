@@ -17,17 +17,17 @@
                 
             };
         
-            //call ang-link if needed
-        
             function controller() {
                 var vmd = this;
         
                 vmd.user;
+                vmd.mockUser;
 
                 activate();
         
                 function activate() {
                     vmd.user = currentUser.getUser();
+                    vmd.mockUser = currentUser;
                 }
             }
     }

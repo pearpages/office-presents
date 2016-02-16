@@ -12,7 +12,8 @@
 
 		return {
 			getAll: getAll,
-            getOneRandom: getOneRandom
+            getOneRandom: getOneRandom,
+            getUser: getUser
 		};
 
 		function getAll() {
@@ -36,6 +37,20 @@
                 }
                 return result;
             }
+        }
+
+        /**
+         * Get a user by its id
+         * @param  {String} userid
+         * @return {User}
+         */
+        function getUser(userid) {
+            for (var i = users.length - 1; i >= 0; i--) {
+                if(users[i].id === userid){
+                    return users[i];
+                } 
+            }
+            return null;
         }
 
 		function init() {
@@ -150,7 +165,7 @@
             ];
 
             for (var i = names.length - 1; i >= 0; i--) {
-           		users.push(new User(names[i],names[i]));
+           		users.push(new User(names[i].replace(/\s/g, ''),names[i]));
             }
 		}
 	}
