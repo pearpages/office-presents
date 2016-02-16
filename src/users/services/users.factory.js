@@ -2,9 +2,9 @@
 	'use strict';
 
 	angular.module("myUsers")
-	.factory('users',['User',users]);
+	.factory('users',['User','birthdays','envelopes',users]);
 
-	function users(User) {
+	function users(User,birthdays,envelopes) {
 
 		var users = [];
 
@@ -58,6 +58,21 @@
 				mock();
 			}
 		}
+
+        function mockDate() {
+            var month = Math.ceil(Math.random() * 12);
+            var day = Math.ceil(Math.random() * 31);
+            return new Date(new Date().getFullYear(), month, day);
+        }
+
+        function mockEnvelope(user,bdayDate) {
+            var envelope = envelopes.make('Birthday',user,new Date(bdayDate + (14*3600*24)),'Some desk');
+            var hasResponsible = Math.ceil(Math.random() * 4)  === 4 ? true : false;
+            if(hasResponsible) {
+                envelope.responsible = getOneRandom(user);
+            }
+            return envelope;
+        }
 
 		function mock() {
 
@@ -165,7 +180,12 @@
             ];
 
             for (var i = names.length - 1; i >= 0; i--) {
-           		users.push(new User(names[i].replace(/\s/g, ''),names[i]));
+                var id = names[i].replace(/\s/g, '');
+                var user = new User(id,names[i]);
+                var bdayDate = mockDate();
+                var envelope = mockEnvelope(user,bdayDate);
+           		users.push(user);
+                user.bdays.push(birthdays.make(user,bdayDate,envelope));
             }
 		}
 	}

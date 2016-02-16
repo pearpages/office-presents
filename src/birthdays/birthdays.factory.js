@@ -2,46 +2,36 @@
     'use strict';
 
     angular.module("office-presents")
-        .factory('birthdays', ['Birthday','users', 'envelopes',birthdays]);
+        .factory('birthdays', ['Birthday',birthdays]);
 
-    function birthdays(Birthday,users,envelopes) {
+    function birthdays(Birthday) {
 
         var birthdays = [];
 
-        init();
-
         return {
-            getAll: getAll
+            getAll: getAll,
+            make: make,
+            get: get
         };
 
-        function init() {
-            if (birthdays.length === 0) {
-                mockBirthdays();
+        function make(user,bdayDate,envelope) {
+            var bday = new Birthday(user,bdayDate,envelope);
+            birthdays.push(bday);
+            return bday;
+        }
+
+        function get(id) {
+            for (var i = 0; i < birthdays.length; i++) {
+                if(birthdays[i]._id == id) {
+                    return birthdays[i];
+                }
             }
+            return null;
         }
 
         function getAll() {
             return birthdays;
         }
 
-        function mockBirthdays() {
-            var u = users.getAll();
-
-            for (var i = 0; i < u.length; i++) {
-                var bdayDate = mockDate();
-                var envelope = envelopes.make('Birthday',u[i],new Date(bdayDate + (14*3600*24)),'Some desk');
-                var hasResponsible = Math.ceil(Math.random() * 4)  === 4 ? true : false;
-                if(hasResponsible) {
-                    envelope.responsible = users.getOneRandom(u[i]);
-                }
-                birthdays.push(new Birthday(u[i],bdayDate,envelope));
-            }
-        }
-
-        function mockDate() {
-            var month = Math.ceil(Math.random() * 12);
-            var day = Math.ceil(Math.random() * 31);
-            return new Date(new Date().getFullYear(), month, day);
-        }
     }
 })();

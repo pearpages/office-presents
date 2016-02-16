@@ -14,6 +14,12 @@
                 templateUrl: "src/users/showAs/partials/show-as.html",
                 controller: "ShowAsController",
                 controllerAs: "vm"
+            })
+            .state('user', {
+                url: "/users/user/:id",
+                templateUrl: "src/users/user/partials/user.html",
+                controller: "UserController",
+                controllerAs: "vm"
             });
     });
 

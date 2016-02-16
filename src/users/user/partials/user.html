@@ -1,0 +1,8 @@
+{{vm.user.id}}
+{{vm.user.name}}
+
+<h4>Birthdays</h4>
+
+<ul>
+    <li ng-repeat="bday in vm.user.bdays">{{bday._id}} {{bday.envelope._id}}</li>
+</ul>

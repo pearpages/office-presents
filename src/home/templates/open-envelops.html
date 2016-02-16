@@ -6,7 +6,7 @@
         <td title="'What'" filter="{what : 'text'}" sortable="'what'">
             {{e.what}}</td>
         <td title="'Who'" filter="{who: 'text'}" sortable="'who.name'">
-            {{e.who.name}}</td>
+            <a ui-sref="user({id: e.who.id})">{{e.who.name}}</a></td>
         <td title="'Last Day'" filter="{lastDay: 'text'}" sortable="'lastDay'">
             {{e.lastDay | date : 'MMM dd'}}</td>
         <td title="'Where'" filter="{where: 'text'}" sortable="'where'">
