@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module("office-presents")
+	angular.module("myUsers")
 	.factory('currentUser',['User',currentUser]);
 
 	function currentUser(User) {

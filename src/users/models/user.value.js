@@ -6,7 +6,7 @@
 		this.name = name;
 	}
 
-	angular.module("office-presents")
+	angular.module("myUsers")
 	.value('User',User);
 
 })();

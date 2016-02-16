@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module("office-presents", ['ui.router','ngTable'])
+    angular.module("office-presents", ['ui.router','ngTable','myUsers'])
 
     .config(function($stateProvider, $urlRouterProvider) {
         
