@@ -14,13 +14,29 @@
             make: make
         };
 
-        function getOpenEnvelopes () {
+        /**
+         * Get all open envelopes, but we can exlude one user
+         * @param  {User} but
+         * @return {[Envelope]}
+         */
+        function getOpenEnvelopes (but) {
             var result = [];
-            for (var i = envelopes.length - 1; i >= 0; i--) {
-                if(envelopes[i].responsible !== null) {
-                    result.push(envelopes[i]);
+            if(but === undefined) {
+                for (var i = envelopes.length - 1; i >= 0; i--) {
+                    if(envelopes[i].responsible !== null) {
+                        result.push(envelopes[i]);
+                    }
+                }    
+            } else {
+                for (var j = envelopes.length - 1; j >= 0; j--) {
+                    if(envelopes[j].responsible !== null) {
+                        if(envelopes[j].who !== but) {
+                            result.push(envelopes[j]);
+                        }
+                    }
                 }
             }
+            
             return result;
         }
 

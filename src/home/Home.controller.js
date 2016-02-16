@@ -21,7 +21,7 @@
         	vm.user = currentUser;	
 
         	vm.birthdays = new NgTableParams({page:1,count: birthdays.getAll().length},{data: birthdays.getAll()});
-        	vm.envelopes = new NgTableParams({page:1,count: envelopes.getOpenEnvelopes().length},{data: envelopes.getOpenEnvelopes()});
+        	vm.envelopes = new NgTableParams({page:1,count: envelopes.getOpenEnvelopes(vm.user.get()).length},{data: envelopes.getOpenEnvelopes(vm.user.get())});
         } 
 
         function addContributor(envelope,user) {
