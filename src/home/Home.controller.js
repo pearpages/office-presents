@@ -13,6 +13,7 @@
         vm.user;
         vm.addContributor = addContributor;
         vm.removeContributor = removeContributor;
+        vm.hasEnvelope = hasEnvelope;
 
         activate();
 
@@ -31,6 +32,13 @@
         	envelope.removeContributor(user);
         }
         
+        function hasEnvelope(envelope) {
+            if(envelope.responsible === null) {
+                return 'NO';
+            } else {
+                return 'YES';
+            }
+        }
     }
 
 })();

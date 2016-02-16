@@ -2,31 +2,31 @@
     'use strict';
 
     angular.module("office-presents")
-    .factory('envelopes',['birthdays','Envelope',envelopes]);
+    .factory('envelopes',['Envelope',envelopes]);
 
-    function envelopes(birthdays,Envelope) {
+    function envelopes(Envelope) {
 
         var envelopes = [];
 
         return {
-            getOpenEnvelopes: getOpenEnvelopes
+            getOpenEnvelopes: getOpenEnvelopes,
+            make: make
         };
 
         function getOpenEnvelopes () {
-            if(birthdays.getAll() && envelopes.length === 0 ) {
-                var bdays = birthdays.getAll();
-
-                for (var i = 0; i < bdays.length; i++) {
-                    var bday = bdays[i];
-                    if(bday.envelope !== ''){
-                        envelopes.push(new Envelope('Birthday',bday.user,new Date(bday.date + (14*3600*24)),'Some random desk'));    
-                    }
+            var result = [];
+            for (var i = envelopes.length - 1; i >= 0; i--) {
+                if(envelopes[i].responsible !== null) {
+                    result.push(envelopes[i]);
                 }
-
-                return envelopes;
-            } else {
-                return envelopes;
             }
+            return result;
+        }
+
+        function make(what,who,lastDay,where) {
+            var envelope = new Envelope(what,who,lastDay,where);
+            envelopes.push(envelope);
+            return envelope;
         }
     }
 })();

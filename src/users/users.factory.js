@@ -11,12 +11,32 @@
 		init();
 
 		return {
-			getAll: getAll
+			getAll: getAll,
+            getOneRandom: getOneRandom
 		};
 
 		function getAll() {
 			return users;
 		}
+
+        /**
+         * Get one random user form the list
+         * @param  {User} not User that we do not want
+         * @return {User}
+         */
+        function getOneRandom (not) {
+            if(not !== undefined) {
+                var randomValue = Math.floor(Math.random() * users.length);
+                return users[randomValue];
+            } else {
+                var result = not;
+                while(result === not) {
+                    var randomValue = Math.floor(Math.random() * users.length);
+                    result[randomValue];
+                }
+                return result;
+            }
+        }
 
 		function init() {
 			if(users.length === 0) {

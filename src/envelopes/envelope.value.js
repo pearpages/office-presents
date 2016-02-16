@@ -1,13 +1,20 @@
 (function() {
     'use strict';
 
+    /**
+     * 
+     * @param {String} what
+     * @param {User} who   
+     * @param {Date} lastDay
+     * @param {String} where
+     */
     var Envelope = function (what,who,lastDay,where) {
         this._id = ++this.nextId.id;
         this.what = what;
-        console.log(who);
-        this.who = who;
+        this.who = who; // User Object
         this.lastDay = lastDay;
         this.where = where;
+        this.responsible = null; // User Object
         this.contributors = [];
     };
 
