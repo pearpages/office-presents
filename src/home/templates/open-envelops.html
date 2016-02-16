@@ -1,6 +1,8 @@
 <table ng-table="vm.envelopes" class="table table-striped" show-filter="true">
     <tr ng-class="e.hasContributor(vm.user) ? 'crossed' : ''" ng-repeat="e in $data" envelope-id="{{e._id}}">
         
+        <td title="'Id'" sortable="'_id'">
+            {{e._id}}</td>
         <td title="'What'" filter="{what : 'text'}" sortable="'what'">
             {{e.what}}</td>
         <td title="'Who'" filter="{who: 'text'}" sortable="'who'">
