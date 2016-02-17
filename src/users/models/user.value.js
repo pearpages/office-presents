@@ -16,6 +16,21 @@
         this.role; // String
 	};
 
+    /**
+     * 
+     * @param  {Envelope} envelope 
+     * @return {Envelope}          
+     */
+    User.prototype.removeEnvelope = function (envelope) {
+        var i = this.responsible.indexOf(envelope);
+        var envelope = null;
+        if( i !== -1) {
+            envelope = this.responsible[i];
+            this.responsible.splice(i,1);
+        }
+        return envelope;
+    };
+
     User.prototype.getCurrentBday = function () {
         var month = this.bday.month;
         var day = this.bday.day;

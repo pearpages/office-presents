@@ -9,7 +9,7 @@
                 url: "/users",
                 template: "helloooooooo"
             })
-            .state('show-as', {
+            .state('showAs', {
                 url: "/users/show-as",
                 templateUrl: "src/users/showAs/partials/show-as.html",
                 controller: "ShowAsController",
