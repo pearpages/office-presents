@@ -24,7 +24,14 @@
     </tr>
     <tr>
         <td>Created by</td>
-        <td>{{vm.envelope.responsible.name}}</td>
+        <td>
+            <form class="form-inline">
+                <select class="form-control" ng-model="vm.responsible">
+                    <option ng-selected="vm.responsible.id === user.id" ng-repeat="user in vm.users.getAll()" value="{{user.id}}">{{user.name}}</option>
+                </select>
+                <button class="btn btn-primary" ng-click="vm.assign()">Assign</button>    
+            </form>
+        </td>
     </tr>
 </table>        
     </div>
