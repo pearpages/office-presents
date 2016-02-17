@@ -10,7 +10,7 @@
     </tr>
     <tr>
         <td>Who</td>
-        <td>{{vm.envelope.who.name}}</td>
+        <td ng-bind-html="vm.envelope.who.id | userLink"></td>
     </tr>
     <tr>
         <td>When</td>
@@ -31,8 +31,8 @@
         <div class="row" ng-show="vm.showAssign() !== 'ADMIN'">
             <div class="col-md-6">{{vm.envelope.responsible.name}}</div>
             <div class="col-md-6">
-                <button ng-show="vm.envelope.responsible === undefined" ng-click="vm.assign()" class="btn btn-primary">Assign it to me</button>
-                <button ng-show="vm.envelope.responsible.id === vm.default" ng-click="vm.remove()" class="btn btn-danger">Remove ME</button>
+                <button ng-show="vm.envelope.responsible === undefined || vm.envelope.responsible === null" ng-click="vm.assign()" class="btn btn-primary">Assign it to me</button>
+                <button ng-show="vm.envelope.responsible.id === vm.currentUser.get().id" ng-click="vm.remove()" class="btn btn-danger">Remove ME</button>
             </div>
         </div>
         </td>

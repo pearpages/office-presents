@@ -9,8 +9,8 @@
 		var vm = this;
 
 		vm.envelope;
+		vm.currentUser;
 		vm.responsible;
-		vm.default;
 		vm.show = show;
 		vm.contribute = contribute;
 		vm.removeContibution = removeContibution;
@@ -23,10 +23,10 @@
 
 		function activate() {
 			vm.envelope = envelopes.getEnvelope($state.params.id);
-			if(vm.envelope.responsible.id !== undefined) {
+			if(vm.envelope.responsible !== undefined && vm.envelope.responsible !== null) {
 				vm.responsible = vm.envelope.responsible.id;
 			}
-			vm.default = currentUser.get().id;
+			vm.currentUser = currentUser;
 		}
 
 		function showAssign() {
@@ -54,13 +54,23 @@
 		}
 
 		function assign() {
-			var assigned = users.getUser(vm.responsible);
+			var assigned;
+			if(currentUser.get().role === 'ADMIN') {
+				assigned = users.getUser(vm.responsible);
+			} else {
+				assigned = currentUser.get();
+			}
 			vm.envelope.responsible = assigned;
-			assigned.responsible.push(vm.envelope);
+			assigned.responsible.push(vm.envelope);	
 		}
 
 		function remove() {
-			var assigned = users.getUser(vm.responsible);
+			var assigned;
+			if(currentUser.get().role === 'ADMIN') {
+				assigned = users.getUser(vm.responsible);
+			} else {
+				assigned = currentUser.get();
+			}
 			assigned.removeEnvelope(vm.envelope);
 			vm.envelope.responsible = undefined;
 		}
