@@ -11,6 +11,10 @@
         <td>{{vm.envelope.who.name}}</td>
     </tr>
     <tr>
+        <td>When</td>
+        <td>{{vm.envelope.eventDate | date : 'yyyy MMM dd'}}</td>
+    </tr>
+    <tr>
         <td>Last Day</td>
         <td>{{vm.envelope.lastDay | date : 'yyyy MMM dd'}}</td>
     </tr>

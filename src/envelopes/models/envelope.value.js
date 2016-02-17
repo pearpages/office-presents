@@ -6,12 +6,14 @@
      * @param {String} what
      * @param {User} who   
      * @param {Date} lastDay
+     * @param {Date} eventDate
      * @param {String} where
      */
-    var Envelope = function (what,who,lastDay,where) {
+    var Envelope = function (what,who,lastDay,eventDate,where) {
         this._id = ++this.nextId.id;
         this.what = what;
         this.who = who; // User Object
+        this.eventDate = eventDate;
         this.lastDay = lastDay;
         this.where = where;
         this.responsible = null; // User Object
@@ -33,7 +35,7 @@
         if(i !== -1){
             this.contributors.splice(i,1);
         }
-    }
+    };
 
     angular.module("myEnvelopes")
     .value('Envelope',Envelope);

@@ -8,7 +8,7 @@
         <td title="'Who'" filter="{who: 'text'}" sortable="'who.name'">
             <a ui-sref="user({id: e.who.id})">{{e.who.name}}</a></td>
         <td title="'Last Day'" filter="{lastDay: 'text'}" sortable="'lastDay'">
-            {{e.lastDay | date : 'MMM dd'}}</td>
+            {{e.lastDay | date : 'yyyy-MMM-dd'}}</td>
         <td title="'Where'" filter="{where: 'text'}" sortable="'where'">
             {{e.where}}</td>
         <td title="'Contributed'" filter="{contributed: 'text'}" sortable="'contributed'">

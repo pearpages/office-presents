@@ -54,8 +54,8 @@
             return null;
         }
 
-        function make(what,who,lastDay,where) {
-            var envelope = new Envelope(what,who,lastDay,where);
+        function make(what,who,lastDay,eventDate,where) {
+            var envelope = new Envelope(what,who,lastDay,eventDate,where);
             envelopes.push(envelope);
             return envelope;
         }

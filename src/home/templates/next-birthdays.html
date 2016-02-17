@@ -4,7 +4,7 @@
         <td title="'Who'" filter="{name : 'text'}" sortable="'name'">
             <a ui-sref="user({id:bday.user.id})">{{bday.user.name}}</a></td>
         <td title="'When'" filter="{date: 'text'}" sortable="'date'">
-            {{bday.date | date : 'MMM dd'}}</td>
+            {{bday.date | date : 'yyyy-MMM-dd'}}</td>
         <td title="'Has Envelope'" filter="{envelope: 'text'}" sortable="'envelope'">{{vm.hasEnvelope(bday.envelope)}}</td>
     </tr>
 </table>
