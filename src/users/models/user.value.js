@@ -13,6 +13,7 @@
         this.bday = bday;
         this.bdays = []; // Array of Birthday
         this.responsible = []; // Array of Envelope
+        this.role; // String
 	};
 
     User.prototype.getCurrentBday = function () {

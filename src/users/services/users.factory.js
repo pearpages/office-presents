@@ -55,7 +55,7 @@
 
 		function init() {
 			if(users.length === 0) {
-				mock();
+				mock(20);
 			}
 		}
 
@@ -78,9 +78,10 @@
             return envelope;
         }
 
-		function mock() {
+		function mock(howMany) {
 
 			var names = [
+                'Pere Pages',
                 'Lamar  Underwood',
                 'Anne    Parsons',
                 'Curtis  Pope',
@@ -183,7 +184,9 @@
                 'Lynette Montgomery'
             ];
 
-            for (var i = names.length - 1; i >= 0; i--) {
+            howMany = howMany || names.length;
+
+            for (var i = howMany - 1; i >= 0; i--) {
                 var id = names[i].replace(/\s/g, '');
                 var bdayDate = mockDate();
                 var user = new User(id,names[i],bdayDate);

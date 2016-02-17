@@ -19,7 +19,8 @@
 
 		function init() {
 			if(currentUser === undefined) {
-				currentUser = users.getUser('LamarUnderwood');
+				currentUser = users.getUser('PerePages');
+				currentUser.role = 'ADMIN';
 			}
 		}
 
