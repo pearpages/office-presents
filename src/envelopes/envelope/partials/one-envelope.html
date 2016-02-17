@@ -29,7 +29,7 @@
         <td>
         <ng-include ng-show="vm.showAssign() === 'ADMIN'" src="'src/envelopes/envelope/partials/assign.html'"></ng-include>
         <div class="row" ng-show="vm.showAssign() !== 'ADMIN'">
-            <div class="col-md-6">{{vm.envelope.responsible.name}}</div>
+            <div class="col-md-6" ng-bind-html="vm.envelope.responsible.id | userLink"></div>
             <div class="col-md-6">
                 <button ng-show="vm.envelope.responsible === undefined || vm.envelope.responsible === null" ng-click="vm.assign()" class="btn btn-primary">Assign it to me</button>
                 <button ng-show="vm.envelope.responsible.id === vm.currentUser.get().id" ng-click="vm.remove()" class="btn btn-danger">Remove ME</button>

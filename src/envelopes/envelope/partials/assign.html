@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-6">
-		<span>{{vm.envelope.responsible.name}}</span>
+		<span ng-bind-html="vm.envelope.responsible.id | userLink"></span>
 		<span ng-show="vm.envelope.responsible === undefined">Not assigned</span>
 	</div>
 	<div class="col-md-6">

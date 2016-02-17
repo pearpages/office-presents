@@ -14,6 +14,7 @@
         this.bdays = []; // Array of Birthday
         this.responsible = []; // Array of Envelope
         this.role; // String
+        this.presents = true;
 	};
 
     /**
