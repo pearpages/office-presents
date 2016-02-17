@@ -1,8 +1,26 @@
-{{vm.user.id}}
-{{vm.user.name}}
+<h2>{{vm.user.name}}</h2>
+<div class="col-md-6">
+	<h4>Info</h4>
+	<table class="table table-striped">
+		<tr>
+			<td>Id</td>
+			<td>{{vm.user.id}}</td>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td>{{vm.user.name}}</td>
+		</tr>
+		<tr>
+			<td>Birthday</td>
+			<td>{{vm.user.bday.month}}-{{vm.user.bday.day}} (MM-DD)</td>
+		</tr>
+	</table>	
+</div>
+<div class="col-md-6">
+	<h4>Birthdays</h4>
 
-<h4>Birthdays</h4>
-
-<ul>
-    <li ng-repeat="bday in vm.user.bdays">{{bday._id}} {{bday.envelope._id}}</li>
-</ul>
+	<table class="table table striped">
+		<tr ng-repeat="bday in vm.user.bdays"><td><a ui-sref="envelope({id: bday.envelope._id})">{{bday.date | date: 'yyyy-MM-dd'}}</a></td></tr>
+	</table>
+	
+</div>
