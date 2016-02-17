@@ -71,7 +71,9 @@
             var envelope = envelopes.make('Birthday',user,lastDay,bdayDate,'Some desk');
             var hasResponsible = Math.ceil(Math.random() * 4)  === 4 ? true : false;
             if(hasResponsible) {
-                envelope.responsible = getOneRandom(user);
+                var responsible = getOneRandom(user);
+                envelope.responsible = responsible;
+                responsible.responsible.push(envelope);
             }
             return envelope;
         }

@@ -23,4 +23,12 @@
 		<tr ng-repeat="bday in vm.user.bdays"><td><a ui-sref="envelope({id: bday.envelope._id})">{{bday.date | date: 'yyyy-MM-dd'}}</a></td></tr>
 	</table>
 	
+	<hr class="divider" />
+
+	<h4>Responsible of</h4>
+
+	<table class="table table striped">
+		<tr ng-repeat="envelope in vm.user.responsible"><td><a ui-sref="envelope({id: envelope._id})">{{envelope.what}} {{envelope.who.name}}</a></td></tr>
+	</table>
+
 </div>
