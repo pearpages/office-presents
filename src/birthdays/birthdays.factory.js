@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module("office-presents")
+    angular.module("myBdays")
         .factory('birthdays', ['Birthday',birthdays]);
 
     function birthdays(Birthday) {

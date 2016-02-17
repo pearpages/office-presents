@@ -10,7 +10,7 @@
 
     Birthday.prototype.nextId = {id: 0};
 
-    angular.module("office-presents")
+    angular.module("myBdays")
         .value('Birthday', Birthday);
 
 })();

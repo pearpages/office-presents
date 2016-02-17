@@ -1,10 +1,9 @@
-<table ng-table="vm.birthdays" class="table table-striped" show-filter="true">
+<table ng-table="vmd.birthdays" class="table table-striped" show-filter="true">
     <tr ng-repeat="bday in $data" >
-        
         <td title="'Who'" filter="{name : 'text'}" sortable="'name'">
             <a ui-sref="user({id:bday.user.id})">{{bday.user.name}}</a></td>
         <td title="'When'" filter="{date: 'text'}" sortable="'date'">
             {{bday.date | date : 'yyyy-MMM-dd'}}</td>
-        <td title="'Has Envelope'" filter="{envelope: 'text'}" sortable="'envelope'">{{vm.hasEnvelope(bday.envelope)}}</td>
+        <td title="'Has Envelope'" filter="{envelope: 'text'}" sortable="'envelope'">{{vmd.hasEnvelope(bday.envelope)}}</td>
     </tr>
 </table>
