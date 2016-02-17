@@ -30,6 +30,9 @@
     </div>
     <div class="col-md-6">
         <h4>Contributors</h4>
+        <div ng-show="vm.show() === 'ALERT'" class="alert alert-warning" role="alert">Nobody is responsible for the envelope</div>
+        <button ng-show="vm.show() === 'CONTRIBUTE'" ng-click="vm.contribute()" class="btn btn-success">Contribute</button>
+        <button ng-show="vm.show() === 'REMOVE'" ng-click="vm.removeContibution()" class="btn btn-danger">Remove contribution</button>
         <table class="table table-striped">
         <thead>
             <tr>

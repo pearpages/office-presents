@@ -22,6 +22,11 @@
 
     Envelope.prototype.nextId = {id: 0};
 
+    /**
+     * 
+     * @param  {User}  contributor
+     * @return {Boolean}          
+     */
     Envelope.prototype.hasContributor = function (contributor) {
         return this.contributors.indexOf(contributor) === -1 ? false : true;
     };

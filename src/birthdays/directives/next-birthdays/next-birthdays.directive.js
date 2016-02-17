@@ -29,7 +29,7 @@
 				}
 
 				function hasEnvelope(envelope) {
-            		if(envelope.responsible === null) {
+            		if(envelope.responsible === null || envelope.responsible === undefined) {
                 		return 'NO';
             		} else {
                 		return 'YES';
