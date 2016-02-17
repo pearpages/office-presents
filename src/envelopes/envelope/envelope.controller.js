@@ -10,6 +10,7 @@
 
 		vm.envelope;
 		vm.currentUser;
+		vm.adminDefault;
 		vm.responsible;
 		vm.show = show;
 		vm.contribute = contribute;
@@ -25,6 +26,10 @@
 			vm.envelope = envelopes.getEnvelope($state.params.id);
 			if(vm.envelope.responsible !== undefined && vm.envelope.responsible !== null) {
 				vm.responsible = vm.envelope.responsible.id;
+				vm.adminDefault = vm.envelope.responsible.id;
+			} else {
+				vm.adminDefault = currentUser.getUser().id;
+				vm.responsible = currentUser.getUser().id;
 			}
 			vm.currentUser = currentUser;
 		}

@@ -6,7 +6,7 @@
 	<div class="col-md-6">
 		<form class="form-inline">
 		    <select class="form-control" ng-model="vm.responsible">
-		        <option ng-selected="vm.responsible === user.id" ng-repeat="user in vm.users.getAll()" value="{{user.id}}">{{user.name}}</option>
+		        <option ng-selected="vm.adminDefault === user.id" ng-repeat="user in vm.users.getAll()" value="{{user.id}}">{{user.name}}</option>
 		    </select>
     		<button class="btn btn-primary" ng-click="vm.assign()">Assign</button>
     		<button ng-show="vm.envelope.responsible.id !== undefined" class="btn btn-danger" ng-click="vm.remove()">Remove</button>
