@@ -5,5 +5,9 @@
         <td title="'When'" filter="{date: 'text'}" sortable="'date'">
             {{bday.date | date : 'yyyy-MMM-dd'}}</td>
         <td title="'Has Envelope'" filter="{envelope: 'text'}" sortable="'envelope'">{{vmd.hasEnvelope(bday.envelope)}}</td>
+        <td title="'Action'" >
+        	<a ng-show="vmd.hasEnvelope(bday.envelope) === 'NO'" ui-sref="envelope({id:bday.envelope._id})" class="btn btn-default">Assign</a>
+        	<a ng-show="vmd.hasEnvelope(bday.envelope) === 'YES'" ui-sref="envelope({id:bday.envelope._id})" class="btn btn-default">Go</a>
+        </td>
     </tr>
 </table>
