@@ -2,21 +2,17 @@
 	'use strict';
 
 	angular.module("myUsers")
-	.controller('ShowAsController',['users','currentUser','notifications',ShowAsController]);
+	.controller('ShowAsController',['currentUser','notifications',ShowAsController]);
 
-	function ShowAsController(users,currentUser,notifications) {
+	function ShowAsController(currentUser,notifications) {
 		var vm = this;
 
-		vm.users;
 		vm.userid;
-		vm.message;
 		vm.showAs = showAs;
 
 		activate();
 
 		function activate() {
-			vm.users = users.getAll();
-			vm.message = null;
 			if(currentUser.getShowAs() === undefined) {
 				vm.userid = currentUser.getUser().id;	
 			} else {
