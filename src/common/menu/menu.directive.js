@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module("common")
-    .directive('officeMenu',['currentUser',officeMenu]);
+    .directive('officeMenu',['currentUser','$state',officeMenu]);
 
-    function officeMenu(currentUser) {
+    function officeMenu(currentUser,$state) {
         return {
                 restrict: 'E',
                 bindToController: true,
@@ -17,14 +17,23 @@
                 
             };
         
-            function controller() {
+            function controller($state) {
                 var vmd = this;
         
                 vmd.user;
                 vmd.showAs = showAs;
+                vmd.active = active;
 
                 activate();
         
+                function active(name) {
+                    if($state.current.name === name) {
+                        return 'active';
+                    } else {
+                        return '';
+                    }
+                }
+
                 function activate() {
                     vmd.user = currentUser.getUser();
                 }

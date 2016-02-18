@@ -2,7 +2,7 @@
     <tr ng-class="e.hasContributor(vmd.user.get()) ? 'crossed' : ''" ng-repeat="e in $data" envelope-id="{{e._id}}">
         
         <td title="'Id'">
-            <a ui-sref="envelope({id: e._id})">{{e._id}}</a></td>
+            <a ui-sref="envelopes.envelope({id: e._id})">{{e._id}}</a></td>
         <td title="'What'">
             {{e.what}}</td>
         <td title="'Who'" filter="{who: 'text'}" sortable="'who.name'">

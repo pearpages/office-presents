@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular.module("myUsers")
-	.factory('users',['User','birthdays','envelopes','Bday',users]);
+	.factory('users',['User','birthdays','envelopes','Bday','$q',users]);
 
 	function users(User,birthdays,envelopes,Bday) {
 
@@ -25,14 +25,13 @@
          * @return {User}
          */
         function getOneRandom (not) {
-            if(not !== undefined) {
+            if(not === undefined) {
                 var randomValue = Math.floor(Math.random() * users.length);
                 return users[randomValue];
             } else {
                 var result = not;
                 while(result === not) {
-                    var randomValue = Math.floor(Math.random() * users.length);
-                    result[randomValue];
+                    result = users[Math.floor(Math.random() * users.length)];
                 }
                 return result;
             }
@@ -183,8 +182,8 @@
                 var id = names[i].replace(/\s/g, '');
                 var bdayDate = mockDate();
                 var user = new User(id,names[i],bdayDate);
+                users.push(user);
                 var envelope = mockEnvelope(user,user.getCurrentBday());
-           		users.push(user);
                 user.bdays.push(birthdays.make(user,user.getCurrentBday(),envelope));
             }
 		}
