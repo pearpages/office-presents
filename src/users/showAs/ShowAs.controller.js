@@ -2,9 +2,9 @@
 	'use strict';
 
 	angular.module("myUsers")
-	.controller('ShowAsController',['users','currentUser',ShowAsController]);
+	.controller('ShowAsController',['users','currentUser','notifications',ShowAsController]);
 
-	function ShowAsController(users,currentUser) {
+	function ShowAsController(users,currentUser,notifications) {
 		var vm = this;
 
 		vm.users;
@@ -28,6 +28,7 @@
 			var user = users.getUser(vm.userid);
 			if(user !== null){
 				currentUser.setShowAs(user);
+				notifications.add('User changed','success');
 			}
 		}
 	}

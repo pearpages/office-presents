@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module("office-presents")
+    angular.module("common")
     .directive('officeMenu',['currentUser',officeMenu]);
 
     function officeMenu(currentUser) {

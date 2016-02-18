@@ -8,12 +8,11 @@
 
 		var users = [];
 
-		init();
-
 		return {
 			getAll: getAll,
             getOneRandom: getOneRandom,
-            getUser: getUser
+            getUser: getUser,
+            mock: mock
 		};
 
 		function getAll() {
@@ -52,12 +51,6 @@
             }
             return null;
         }
-
-		function init() {
-			if(users.length === 0) {
-				mock(20);
-			}
-		}
 
         function mockDate() {
             var month = Math.ceil(Math.random() * 12);
