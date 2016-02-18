@@ -8,7 +8,8 @@
 
 		var vm = this;
 
-		vm.user;
+		vm.who;
+		vm.responsible;
 		vm.currentUser = currentUser;
 	}
 })();
