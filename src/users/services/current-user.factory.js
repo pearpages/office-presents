@@ -14,7 +14,8 @@
 			getUser: getUser,
 			setShowAs: setShowAs,
 			getShowAs: getShowAs,
-			get: get
+			get: get,
+			loggout: loggout
 		};
 
 		function init() {
@@ -22,6 +23,11 @@
 				currentUser = users.getUser('PerePages');
 				currentUser.role = 'ADMIN';
 			}
+		}
+
+		function loggout() {
+			currentUser = undefined;
+			mockUser = undefined;
 		}
 
 		/**

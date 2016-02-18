@@ -12,6 +12,13 @@
                 templateUrl: "src/home/templates/home.html",
                 controller: "HomeController",
                 controllerAs: "vm"
+            })
+            .state('loggout', {
+                url: "/loggout",
+                controller: function (currentUser,$state) {
+                    currentUser.loggout();
+                    $state.go('home');
+                }
             });
     });
 
