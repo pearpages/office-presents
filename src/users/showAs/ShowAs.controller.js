@@ -2,9 +2,9 @@
 	'use strict';
 
 	angular.module("myUsers")
-	.controller('ShowAsController',['currentUser','notifications',ShowAsController]);
+	.controller('ShowAsController',['users','currentUser','notifications',ShowAsController]);
 
-	function ShowAsController(currentUser,notifications) {
+	function ShowAsController(users,currentUser,notifications) {
 		var vm = this;
 
 		vm.userid;
