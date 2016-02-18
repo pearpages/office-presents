@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module("myUsers")
-    .controller('UserController',['users','$state','currentUser',UserController]);
+    .controller('UserController',['users','$state','currentUser','notifications',UserController]);
 
-    function UserController(users,$state,currentUser) {
+    function UserController(users,$state,currentUser,notifications) {
 
         var vm = this;
 
@@ -23,6 +23,7 @@
 
         function save() {
             currentUser.get().presents = vm.inputPresents;
+            notifications.add('Changes saved','success');
         }
 
     }
