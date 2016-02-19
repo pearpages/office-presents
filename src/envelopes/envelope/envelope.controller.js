@@ -65,8 +65,7 @@
 			} else {
 				assigned = currentUser.get();
 			}
-			vm.envelope.responsible = assigned;
-			assigned.responsible.push(vm.envelope);	
+			assigned.addResponsible(assigned,vm.envelope);
 		}
 
 		function remove() {
@@ -76,8 +75,7 @@
 			} else {
 				assigned = currentUser.get();
 			}
-			assigned.removeEnvelope(vm.envelope);
-			vm.envelope.responsible = undefined;
+			assigned.removeResponsible(assigned,vm.envelope);
 		}
 	}
 })();

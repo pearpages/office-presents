@@ -29,7 +29,7 @@
 			var responsible = users.getUser(vm.form.responsible);
 
 			var envelope = envelopes.make(vm.form.what,who,vm.form.lastDay,vm.form.when,vm.form.where);
-			envelope.responsible = responsible;
+			responsible.addResponsible(responsible,envelope);
 		}
 
 		function Form() {

@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module("myEnvelopes")
-    .factory('envelopes',['Envelope',envelopes]);
+    .factory('envelopes',['Envelope','addResponsible','removeResponsible',envelopes]);
 
-    function envelopes(Envelope) {
+    function envelopes(Envelope,addResponsible,removeResponsible) {
 
         var envelopes = [];
 
@@ -64,6 +64,8 @@
          * @return {Envelope}         
          */
         function make(what,who,lastDay,eventDate,where) {
+            Envelope.prototype.addResponsible = addResponsible;
+            Envelope.prototype.removeResponsible = removeResponsible;
             var envelope = new Envelope(what,who,lastDay,eventDate,where);
             envelopes.push(envelope);
             return envelope;
