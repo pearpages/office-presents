@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module("myUsers")
-        .factory('users', ['User', 'addResponsible','removeResponsible', users]);
+        .factory('users', ['User', 'addResponsible','removeResponsible','addContribution','removeContribution', users]);
 
-    function users(User, addResponsible,removeResponsible) {
+    function users(User, addResponsible,removeResponsible,addContribution,removeContribution) {
 
         var users = [];
 
@@ -18,6 +18,8 @@
         function make(id,name,bday) {
             User.prototype.addResponsible = addResponsible;
             User.prototype.removeResponsible = removeResponsible;
+            User.prototype.addContribution = addContribution;
+            User.prototype.removeContribution = removeContribution;
             var user = new User(id, name, bday);
             users.push(user);
             return user;

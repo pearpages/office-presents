@@ -51,11 +51,11 @@
 		}
 
 		function contribute() {
-			vm.envelope.addContributor(currentUser.get());
+			vm.envelope.addContribution(currentUser.get(),vm.envelope);
 		}
 
 		function removeContibution() {
-			vm.envelope.removeContributor(currentUser.get());
+			vm.envelope.removeContribution(currentUser.get(),vm.envelope);
 		}
 
 		function assign() {

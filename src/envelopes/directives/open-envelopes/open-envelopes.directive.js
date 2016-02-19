@@ -33,12 +33,12 @@
 		        	vmd.envelopes = new NgTableParams({page:1,count: 10},{data: open});
 		        } 
 
-		        function addContributor(envelope,user) {
-		        	envelope.addContributor(currentUser.get());
+		        function addContributor(envelope) {
+		        	envelope.addContribution(currentUser.get(),envelope);
 		        }
 
-		        function removeContributor(envelope,user) {
-		        	envelope.removeContributor(currentUser.get());
+		        function removeContributor(envelope) {
+		        	envelope.removeContribution(currentUser.get(),envelope);
 		        }
 			}
 	}

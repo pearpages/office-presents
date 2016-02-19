@@ -15,6 +15,7 @@
         this.responsible = []; // Array of Envelope
         this.role; // String
         this.presents = true;
+        this.contributions = []; // Array of Envelopes
 	};
 
     /**

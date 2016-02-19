@@ -1,43 +1,60 @@
 <h2>{{vm.user.name}}</h2>
 <div class="col-md-6">
-	<h4>Info</h4>
-	<table class="table table-striped">
-		<tr>
-			<td>Id</td>
-			<td>{{vm.user.id}}</td>
-		</tr>
-		<tr>
-			<td>Name</td>
-			<td>{{vm.user.name}}</td>
-		</tr>
-		<tr>
-			<td>Birthday</td>
-			<td>{{vm.user.bday.month}}-{{vm.user.bday.day}} (MM-DD)</td>
-		</tr>
-		<tr>
-			<td>Accepts Envelopes</td>
-			<td>
-				<span ng-show="vm.user.id !== vm.logged.id">{{vm.user.presents | yesNo}}</span>
-				<span ng-show="vm.user.id === vm.logged.id"><input type="checkbox" ng-model="vm.inputPresents"></span>
-			</td>
-		</tr>
-	</table>
-	<button ng-show="vm.user.id === vm.logged.id" class="btn btn-primary" ng-click="vm.save()">Save</button>
+	<div class="well">
+		<h4>Info</h4>
+		<table class="table table-striped">
+			<tr>
+				<td>Id</td>
+				<td>{{vm.user.id}}</td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td>{{vm.user.name}}</td>
+			</tr>
+			<tr>
+				<td>Birthday</td>
+				<td>{{vm.user.bday.month}}-{{vm.user.bday.day}} (MM-DD)</td>
+			</tr>
+			<tr>
+				<td>Accepts Envelopes</td>
+				<td>
+					<span ng-show="vm.user.id !== vm.logged.id">{{vm.user.presents | yesNo}}</span>
+					<span ng-show="vm.user.id === vm.logged.id"><input type="checkbox" ng-model="vm.inputPresents"></span>
+				</td>
+			</tr>
+		</table>
+		<button ng-show="vm.user.id === vm.logged.id" class="btn btn-primary" ng-click="vm.save()">Save</button>
+	</div>
+	
 	
 </div>
 <div class="col-md-6">
-	<h4>Birthdays</h4>
+	<div class="well">
+		<h4>Birthdays</h4>
 
-	<table class="table table striped">
-		<tr ng-repeat="bday in vm.user.bdays"><td><a ui-sref="envelopes.envelope({id: bday.envelope._id})">{{bday.date | date: 'yyyy-MM-dd'}}</a></td></tr>
-	</table>
+		<table class="table table striped">
+			<tr ng-repeat="bday in vm.user.bdays"><td><a ui-sref="envelopes.envelope({id: bday.envelope._id})">{{bday.date | date: 'yyyy-MM-dd'}}</a></td></tr>
+		</table>	
+	</div>
 	
-	<hr class="divider" />
+	<div class="well">
+		<h4>Responsible of</h4>
 
-	<h4>Responsible of</h4>
+		<table class="table table striped">
+			<tr ng-repeat="envelope in vm.user.responsible"><td><a ui-sref="envelopes.envelope({id: envelope._id})">{{envelope.what}} {{envelope.who.name}}</a></td></tr>
+		</table>		
+	</div>
 
-	<table class="table table striped">
-		<tr ng-repeat="envelope in vm.user.responsible"><td><a ui-sref="envelopes.envelope({id: envelope._id})">{{envelope.what}} {{envelope.who.name}}</a></td></tr>
-	</table>
+	<div class="well">
+		<h4>Contributed to</h4>
 
+		<table class="table table-striped">
+			<tr ng-repeat="con in vm.user.contributions">
+				<td>{{con.what}}</td>
+				<td>{{con.who.name}}</td>
+				<td>{{con.eventDate | date : 'yyyy-MM-dd'}}</td>
+				<td>{{con.lastDay | date : 'yyyy-MM-dd'}}</td>
+			</tr>
+		</table>
+	</div>
 </div>
