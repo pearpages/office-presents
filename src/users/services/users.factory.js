@@ -1,36 +1,45 @@
 (function() {
-	'use strict';
+    'use strict';
 
-	angular.module("myUsers")
-	.factory('users',['User','birthdays','envelopes','Bday','$q',users]);
+    angular.module("myUsers")
+        .factory('users', ['User', 'birthdays', 'envelopes', 'Bday', '$q', users]);
 
-	function users(User,birthdays,envelopes,Bday) {
+    function users(User, birthdays, envelopes, Bday) {
 
-		var users = [];
+        var users = [];
 
-		return {
-			getAll: getAll,
+        return {
+            getAll: getAll,
             getOneRandom: getOneRandom,
             getUser: getUser,
             mock: mock
-		};
+        };
 
-		function getAll() {
-			return users;
-		}
+        function getAll() {
+            return users.sort(compare);
+        }
+
+        function compare(a, b) {
+            if (a.name < b.name)
+                return -1;
+            else if (a.name > b.name)
+                return 1;
+            else
+                return 0;
+        }
 
         /**
          * Get one random user form the list
          * @param  {User} not User that we do not want
          * @return {User}
          */
-        function getOneRandom (not) {
-            if(not === undefined) {
+        function getOneRandom(not) {
+            if (not === undefined) {
                 var randomValue = Math.floor(Math.random() * users.length);
                 return users[randomValue];
             } else {
                 var result = not;
-                while(result === not) {
+                while (result === not) {
                     result = users[Math.floor(Math.random() * users.length)];
                 }
                 return result;
@@ -44,9 +53,9 @@
          */
         function getUser(userid) {
             for (var i = users.length - 1; i >= 0; i--) {
-                if(users[i].id === userid){
+                if (users[i].id === userid) {
                     return users[i];
-                } 
+                }
             }
             return null;
         }
@@ -54,15 +63,15 @@
         function mockDate() {
             var month = Math.ceil(Math.random() * 12);
             var day = Math.ceil(Math.random() * 31);
-            return new Bday(month,day);
+            return new Bday(month, day);
         }
 
-        function mockEnvelope(user,bdayDate) {
-            var lastDay = new Date(bdayDate.getTime() + (14*3600*24*1000));
+        function mockEnvelope(user, bdayDate) {
+            var lastDay = new Date(bdayDate.getTime() + (14 * 3600 * 24 * 1000));
 
-            var envelope = envelopes.make('Birthday',user,lastDay,bdayDate,'Some desk');
-            var hasResponsible = Math.ceil(Math.random() * 4)  === 4 ? true : false;
-            if(hasResponsible) {
+            var envelope = envelopes.make('Birthday', user, lastDay, bdayDate, 'Some desk');
+            var hasResponsible = Math.ceil(Math.random() * 4) === 4 ? true : false;
+            if (hasResponsible) {
                 var responsible = getOneRandom(user);
                 envelope.responsible = responsible;
                 responsible.responsible.push(envelope);
@@ -70,9 +79,9 @@
             return envelope;
         }
 
-		function mock(howMany) {
+        function mock(howMany) {
 
-			var names = [
+            var names = [
                 'Pere Pages',
                 'Lamar  Underwood',
                 'Anne    Parsons',
@@ -181,11 +190,11 @@
             for (var i = howMany - 1; i >= 0; i--) {
                 var id = names[i].replace(/\s/g, '');
                 var bdayDate = mockDate();
-                var user = new User(id,names[i],bdayDate);
+                var user = new User(id, names[i], bdayDate);
                 users.push(user);
-                var envelope = mockEnvelope(user,user.getCurrentBday());
-                user.bdays.push(birthdays.make(user,user.getCurrentBday(),envelope));
+                var envelope = mockEnvelope(user, user.getCurrentBday());
+                user.bdays.push(birthdays.make(user, user.getCurrentBday(), envelope));
             }
-		}
-	}
+        }
+    }
 })();
