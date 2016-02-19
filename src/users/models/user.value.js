@@ -13,7 +13,7 @@
         this.bday = bday;
         this.bdays = []; // Array of Birthday
         this.responsible = []; // Array of Envelope
-        this.role; // String
+        this.role = 'NORMAL'; // String
         this.presents = true;
         this.contributions = []; // Array of Envelopes
 	};

@@ -16,6 +16,10 @@
 				<td>{{vm.user.bday.month}}-{{vm.user.bday.day}} (MM-DD)</td>
 			</tr>
 			<tr>
+				<td>Role</td>
+				<td>{{vm.user.role}}</td>
+			</tr>
+			<tr>
 				<td>Accepts Envelopes</td>
 				<td>
 					<span ng-show="vm.user.id !== vm.logged.id">{{vm.user.presents | yesNo}}</span>

@@ -8,21 +8,21 @@
 		var currentUser;
 		var mockUser;
 
-		init();
-
 		return {
 			getUser: getUser,
+			setUser: setUser,
 			setShowAs: setShowAs,
 			getShowAs: getShowAs,
 			get: get,
 			loggout: loggout
 		};
 
-		function init() {
-			if(currentUser === undefined) {
-				currentUser = users.getUser('PerePages');
-				currentUser.role = 'ADMIN';
-			}
+		/**
+		 * 
+		 * @param {User} user
+		 */
+		function setUser(user) {
+			currentUser = user;
 		}
 
 		function loggout() {

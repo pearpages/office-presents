@@ -2,9 +2,9 @@
 	'use strict';
 
 	angular.module("myUsers")
-	.controller('ShowAsController',['users','currentUser','notifications',ShowAsController]);
+	.controller('ShowAsController',['users','currentUser','notifications','$state',ShowAsController]);
 
-	function ShowAsController(users,currentUser,notifications) {
+	function ShowAsController(users,currentUser,notifications,$state) {
 		var vm = this;
 
 		vm.userid;
@@ -13,6 +13,11 @@
 		activate();
 
 		function activate() {
+			if(currentUser.get().role !== 'ADMIN') {
+				notifications.add('Wrong role','danger');
+				$state.go('home');
+			}
+
 			if(currentUser.getShowAs() === undefined) {
 				vm.userid = currentUser.getUser().id;	
 			} else {

@@ -2,9 +2,9 @@
 	'use strict';
 
 	angular.module("myEnvelopes")
-	.directive('openEnvelopes',['envelopes','NgTableParams','currentUser',openEnvelopes]);
+	.directive('openEnvelopes',['envelopes','NgTableParams','currentUser','notifications',openEnvelopes]);
 
-	function openEnvelopes(envelopes,NgTableParams,currentUser) {
+	function openEnvelopes(envelopes,NgTableParams,currentUser,notifications) {
 		return {
 				restrict: 'E',
 				bindToController: true,
@@ -35,10 +35,12 @@
 
 		        function addContributor(envelope) {
 		        	envelope.addContribution(currentUser.get(),envelope);
+		        	notifications.add('Contributed','success');
 		        }
 
 		        function removeContributor(envelope) {
 		        	envelope.removeContribution(currentUser.get(),envelope);
+		        	notifications.add('Contribution removed','info');
 		        }
 			}
 	}
