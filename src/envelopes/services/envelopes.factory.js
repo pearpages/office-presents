@@ -54,6 +54,15 @@
             return null;
         }
 
+        /**
+         * 
+         * @param  {String} what    
+         * @param  {User} who       
+         * @param  {Date} lastDay   
+         * @param  {Date} eventDate 
+         * @param  {String} where     
+         * @return {Envelope}         
+         */
         function make(what,who,lastDay,eventDate,where) {
             var envelope = new Envelope(what,who,lastDay,eventDate,where);
             envelopes.push(envelope);
