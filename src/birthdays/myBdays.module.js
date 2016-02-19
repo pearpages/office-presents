@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
 
-	angular.module("myBdays", []);
+	angular.module("myBdays", ['ui.bootstrap']);
 	
 })();

@@ -1,13 +1,4 @@
-<table ng-table="vmd.birthdays" class="table table-striped" show-filter="true">
-    <tr ng-repeat="bday in $data" >
-        <td title="'Who'" filter="{name : 'text'}" sortable="'name'">
-            <a ui-sref="user({id:bday.user.id})">{{bday.user.name}}</a></td>
-        <td title="'When'" filter="{date: 'text'}" sortable="'date'">
-            {{bday.date | date : 'yyyy-MMM-dd'}}</td>
-        <td title="'Has Envelope'" filter="{envelope: 'text'}" sortable="'envelope'">{{vmd.hasEnvelope(bday.envelope)}}</td>
-        <td title="'Action'" >
-        	<a ng-show="vmd.hasEnvelope(bday.envelope) === 'NO'" ui-sref="envelopes.envelope({id:bday.envelope._id})" class="btn btn-default">Assign</a>
-        	<a ng-show="vmd.hasEnvelope(bday.envelope) === 'YES'" ui-sref="envelopes.envelope({id:bday.envelope._id})" class="btn btn-default">Go</a>
-        </td>
-    </tr>
-</table>
+ <uib-tabset>
+    <uib-tab heading="Next"><ng-include src="'src/birthdays/directives/next-birthdays/partials/all.html'"></ng-include></uib-tab>
+    <uib-tab heading="Last">Static content</uib-tab>
+  </uib-tabset>
