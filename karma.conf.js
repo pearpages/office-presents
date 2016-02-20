@@ -15,7 +15,17 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/**/*.spec.js'
+        'node_modules/angular/angular.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+        'node_modules/jquery/dist/jquery.js',
+        'node_modules/bootstrap/dist/js/bootstrap.js',
+        'node_modules/angular-ui-router/release/angular-ui-router.js',
+        'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
+        'bower_components/ng-table/dist/ng-table.js',
+        'src/**/*.module.js',
+        'src/**/*.value.js',
+        'src/birthdays/birthday.value.js',
+        'src/**/*spec.js'
     ],
 
 
