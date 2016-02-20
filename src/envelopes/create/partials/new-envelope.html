@@ -1,35 +1,34 @@
 <div class="row">
-	<div class="col-md-3">
-		<h4>New Envelope</h4>
-		<form>
-			  <div class="form-group">
-			    <label>What</label>
-			    <input ng-model="vm.form.what" class="form-control">
-			  </div>
-			  <div class="form-group">
-			    <label>Who</label>
-			    <user-select model="vm.form.who"></user-select>
-			  </div>
-			    <div class="form-group">
-			    <label>When</label>
-			    <input type="date" ng-model="vm.form.when" class="form-control">
-			  </div>
-			  <div class="form-group">
-			    <label>Last Day</label>
-			    <input type="date" ng-model="vm.form.lastDay" class="form-control">
-			  </div>
-			  <div class="form-group">
-			    <label>Where</label>
-			    <input ng-model="vm.form.where" class="form-control">
-			  </div>
-			   <div class="form-group">
-			    <label>Responsible</label>
-			    <user-select model="vm.form.responsible"></user-select>
-			  </div>
-			  <button type="submit" ng-click="vm.submit()" class="btn btn-default">Submit</button>
-		</form>		
-	</div>
-	<div class="col-md-3">
-		{{vm.form}}
-	</div>
+    <div class="col-md-6">
+        <h2>New Envelope</h2>
+        <div class="well">
+            <form>
+                <div class="form-group">
+                    <label>What</label>
+                    <input ng-model="vm.form.what" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Who</label>
+                    <user-select model="vm.form.who"></user-select>
+                </div>
+                <div class="form-group">
+                    <label>When</label>
+                    <input type="date" ng-model="vm.form.when" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Last Day</label>
+                    <input type="date" ng-model="vm.form.lastDay" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Where</label>
+                    <input ng-model="vm.form.where" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Responsible</label>
+                    <user-select model="vm.form.responsible"></user-select>
+                </div>
+                <button type="submit" ng-click="vm.submit()" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
