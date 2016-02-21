@@ -11,14 +11,14 @@ describe('birthday.value',function() {
         Envelope = _Envelope_;
     }));
 
-    it('A new Birthday should have a valid date', function (){
+    it('A new Birthday should have valid parameters', function (){
         var sut = new Birthday(new User(),new Date(),new Envelope());
         expect(sut.date).toEqual(jasmine.any(Date));
         expect(sut.user).toEqual(jasmine.any(User));
         expect(sut.envelope).toEqual(jasmine.any(Envelope));
     });
     
-    it('A new Birthday object should have id 1',function() {
+    it('A new Birthday object should have id 1 and the second 2 and so on',function() {
         var oneBirthday = new Birthday(new User(),new Date(),new Envelope());
         expect(oneBirthday._id).toBe(1);
         var secondBirthday = new Birthday(new User(), new Date(),new Envelope());

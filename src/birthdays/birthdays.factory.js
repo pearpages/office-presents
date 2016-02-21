@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module("myBdays")
-        .factory('birthdays', ['Birthday',birthdays]);
+        .factory('birthdays', ['Birthday','User','Envelope',birthdays]);
 
-    function birthdays(Birthday) {
+    function birthdays(Birthday,User,Envelope) {
 
         var birthdays = [];
 
@@ -14,7 +14,23 @@
             get: get
         };
 
+        /**
+         * 
+         * @param  {User} user   
+         * @param  {Date} bdayDate 
+         * @param  {Envelope} envelope 
+         * @return {Birthday}          
+         */
         function make(user,bdayDate,envelope) {
+            if(user instanceof User === false) {
+                throw 'User expected';
+            }
+            if(bdayDate instanceof Date === false) {
+                throw 'Date expected';
+            }
+            if(envelope instanceof Envelope === false){
+                throw 'Envelope expected';
+            }
             var bday = new Birthday(user,bdayDate,envelope);
             birthdays.push(bday);
             return bday;

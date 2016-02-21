@@ -24,7 +24,8 @@ module.exports = function(config) {
         'bower_components/ng-table/dist/ng-table.js',
         'src/**/*.module.js',
         'src/**/*.value.js',
-        'src/birthdays/birthday.value.js',
+        'src/birthdays/Birthday.js',
+        'src/birthdays/birthdays.factory.js',
         'src/**/*spec.js'
     ],
 
