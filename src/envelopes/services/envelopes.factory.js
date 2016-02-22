@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module("myEnvelopes")
-    .factory('envelopes',['Envelope','addResponsible','removeResponsible','addContribution','removeContribution',envelopes]);
+    .factory('envelopes',['User','Envelope','addResponsible','removeResponsible','addContribution','removeContribution',envelopes]);
 
-    function envelopes(Envelope,addResponsible,removeResponsible,addContribution,removeContribution) {
+    function envelopes(User,Envelope,addResponsible,removeResponsible,addContribution,removeContribution) {
 
         var envelopes = [];
 
@@ -64,6 +64,21 @@
          * @return {Envelope}         
          */
         function make(what,who,lastDay,eventDate,where) {
+            if(typeof what !== 'string') {
+                throw 'Expected string for variable what in envelopes.make';
+            }
+            if(who instanceof User === false) {
+                throw 'Expected User for variable who in envelopes.make';
+            }
+            if(lastDay instanceof Date === false) {
+                throw 'Expected Date in variable lastDay in envelopes.make';
+            }
+            if(eventDate instanceof Date === false) {
+                throw 'Exepcted Date in variable eventDate in envelopes.make';
+            }
+            if(typeof where !== 'string') {
+                throw 'Expected string in variable where in envelopes.make';
+            }
             Envelope.prototype.addResponsible = addResponsible;
             Envelope.prototype.removeResponsible = removeResponsible;
             Envelope.prototype.addContribution = addContribution;
