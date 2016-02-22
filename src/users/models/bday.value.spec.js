@@ -1,4 +1,0 @@
-describe('bday.value',function (){
-
-	
-});
