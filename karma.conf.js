@@ -27,6 +27,7 @@ module.exports = function(config) {
         'src/envelopes/models/Envelope.js',
         'src/birthdays/Birthday.js',
         'src/birthdays/birthdays.factory.js',
+        'src/envelopes/services/envelopes.factory.js',
         'src/**/*spec.js'
     ],
 
