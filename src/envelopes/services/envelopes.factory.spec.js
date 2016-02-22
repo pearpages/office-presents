@@ -37,6 +37,7 @@ describe('envelopes.factory',function (){
 		});
 
 		it('Should return the right number of open envelopes', function() {
+			var envelope0 = envelopes.make('birthday',new User(),new Date(),new Date(),'Desk'); // this one has not been assigned
 			var envelope1 = envelopes.make('birthday',new User(),new Date(),new Date(),'Desk');
 			envelope1.addResponsible(new User(),envelope1);
 			var envelope2 = envelopes.make('birthday',new User(),new Date(),new Date(),'Desk');
@@ -54,7 +55,16 @@ describe('envelopes.factory',function (){
 	});
 	
 	describe('getEnvelope',function (){
+		it('Should return the right envelope when the id exists',function (){
+			var envelope = envelopes.make('birthday',new User(),new Date(),new Date(),'Desk');
+			expect(envelopes.getEnvelope(envelope._id)).toEqual(envelope);		
+		});
 
+		it('Should return null value when the id does not exist',function() {
+			var sut = envelopes.getEnvelope(9999);
+			expect(sut).toBe(null);
+		});
+		
 	});
 	
 });
