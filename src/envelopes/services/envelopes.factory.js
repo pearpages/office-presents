@@ -9,7 +9,7 @@
         var envelopes = [];
 
         return {
-            getOpenEnvelopes: getOpenEnvelopes,
+            getAssignedEnvelopes: getAssignedEnvelopes,
             getEnvelope: getEnvelope,
             make: make
         };
@@ -19,7 +19,7 @@
          * @param  {User} but
          * @return {[Envelope]}
          */
-        function getOpenEnvelopes (but) {
+        function getAssignedEnvelopes (but) {
             var result = [];
             if(but === undefined) {
                 for (var i = envelopes.length - 1; i >= 0; i--) {

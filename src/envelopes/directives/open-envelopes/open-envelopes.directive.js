@@ -29,7 +29,7 @@
 
 		        function activate() {
 		        	vmd.user = currentUser;	
-		        	var open = envelopes.getOpenEnvelopes(vmd.user.get());
+		        	var open = envelopes.getAssignedEnvelopes(vmd.user.get());
 		        	vmd.envelopes = new NgTableParams({page:1,count: 10},{data: open});
 		        } 
 

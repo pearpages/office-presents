@@ -30,7 +30,31 @@ describe('envelopes.factory',function (){
 		});
 	});
 	
-	//getOpenEnvelopes
-	//getEnvelope
+	describe('getAssignedEnvelopes',function (){
+		it('Should return an empty array when there are no new envelopes', function() {
+			var sut = envelopes.getAssignedEnvelopes();
+			expect(sut.length).toBe(0);
+		});
+
+		it('Should return the right number of open envelopes', function() {
+			var envelope1 = envelopes.make('birthday',new User(),new Date(),new Date(),'Desk');
+			envelope1.addResponsible(new User(),envelope1);
+			var envelope2 = envelopes.make('birthday',new User(),new Date(),new Date(),'Desk');
+			envelope1.addResponsible(new User(),envelope2);
+			var envelope3 = envelopes.make('birthday',new User(),new Date(),new Date(),'Desk');
+			envelope1.addResponsible(new User(),envelope3);
+			var envelope4 = envelopes.make('birthday',new User(),new Date(),new Date(),'Desk');
+			envelope1.addResponsible(new User(),envelope4);
+			var envelope5 = envelopes.make('birthday',new User(),new Date(),new Date(),'Desk');
+			envelope1.addResponsible(new User(),envelope5);
+
+			var sut = envelopes.getAssignedEnvelopes();
+			expect(sut.length).toBe(5);
+		});
+	});
+	
+	describe('getEnvelope',function (){
+
+	});
 	
 });
