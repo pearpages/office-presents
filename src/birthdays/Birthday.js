@@ -14,13 +14,13 @@
          */
         var Birthday = function(user, date, envelope) {
             if(date instanceof Date === false) {
-                throw 'Date expected';
+                throw 'Date expected in Birthday constructor';
             }
             if(user instanceof User === false) {
-                throw 'User expected';
+                throw 'User expected in Birthday constructor';
             }
             if(envelope instanceof Envelope === false) {
-                throw 'Envelope expected';
+                throw 'Envelope expected in Birthday constructor';
             }
             this.date = date;
             this.envelope = envelope;

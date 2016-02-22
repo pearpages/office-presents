@@ -18,13 +18,13 @@ describe('birthday.factory',function() {
     	});
 
     	it('Should return an array with one value when whe create a birthday', function (){
-    		birthdays.make(new User(),new Date(),new Envelope());
+    		birthdays.make(new User(),new Date(),new Envelope('birthday',new User(),new Date(), new Date(), 'desk'));
     		expect(birthdays.getAll().length).toBe(1);
     	});
     });
 
     it('should get a Birthday for a given id', function() {
-    	var birthday = birthdays.make(new User(),new Date(),new Envelope());
+    	var birthday = birthdays.make(new User(),new Date(),new Envelope('birthday',new User(),new Date(), new Date(), 'desk'));
     	var birthday2 = birthdays.get(birthday._id);
 
     	expect(birthday).toBe(birthday2);
@@ -32,10 +32,10 @@ describe('birthday.factory',function() {
 
     it('should return all birthdays created', function (){
     	var test = [];
-    	test.push(birthdays.make(new User(),new Date(),new Envelope()));
-    	test.push(birthdays.make(new User(),new Date(),new Envelope()));
-    	test.push(birthdays.make(new User(),new Date(),new Envelope()));
-    	test.push(birthdays.make(new User(),new Date(),new Envelope()));
+    	test.push(birthdays.make(new User(),new Date(),new Envelope('birthday',new User(),new Date(), new Date(), 'desk')));
+    	test.push(birthdays.make(new User(),new Date(),new Envelope('birthday',new User(),new Date(), new Date(), 'desk')));
+    	test.push(birthdays.make(new User(),new Date(),new Envelope('birthday',new User(),new Date(), new Date(), 'desk')));
+    	test.push(birthdays.make(new User(),new Date(),new Envelope('birthday',new User(),new Date(), new Date(), 'desk')));
 
     	var sut = birthdays.getAll();
 
