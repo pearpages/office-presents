@@ -15,7 +15,7 @@
             }
             this.month = month;
             this.day = day;
-        }
+        };
     	
         Bday.prototype.getCurrentBday = function () {
             var month = this.bday.month;

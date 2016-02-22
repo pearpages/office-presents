@@ -2,9 +2,9 @@
 	'use strict';
 
     angular.module("myUsers")
-    .factory('User','Bday',User);
+    .factory('User',['Bday',user]);
 
-    function User(Bday) {
+    function user(Bday) {
         /**
          * 
          * @param {String} id
@@ -15,7 +15,7 @@
             if(typeof id !== 'string') {
                 throw 'String expected in variable id in User model constructor';
             }
-            if(typeof name !== string) {
+            if(typeof name !== 'string') {
                 throw 'String expected in variable name in User model constructor';
             }
             if(bday instanceof Bday === false) {
@@ -38,9 +38,8 @@
          */
         User.prototype.removeEnvelope = function (envelope) {
             var i = this.responsible.indexOf(envelope);
-            var envelope = null;
+
             if( i !== -1) {
-                envelope = this.responsible[i];
                 this.responsible.splice(i,1);
             }
             return envelope;
