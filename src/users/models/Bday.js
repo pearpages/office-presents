@@ -2,11 +2,11 @@
     'use strict';
 
     angular.module("myUsers")
-    .value('Bday',Bday);
+    .factory('Bday',[bday]);
 
-    function Bday(month,day) {
+    function bday() {
 
-        var Bday = function () {
+        var Bday = function (month,day) {
             if(typeof month !== 'number'){
                 throw 'Number expected in variable month in myUsers::Bday constructor'
             }
@@ -18,8 +18,8 @@
         };
     	
         Bday.prototype.getCurrentBday = function () {
-            var month = this.bday.month;
-            var day = this.bday.day;
+            var month = this.month;
+            var day = this.day;
 
             var now = new Date();
             var candidate1 = new Date(new Date().getFullYear(), month, day);
@@ -31,6 +31,8 @@
                 return candidate2;
             }
         };
+
+        return Bday;
     }
 
 })();
