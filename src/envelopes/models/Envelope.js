@@ -18,8 +18,20 @@
             if(arguments.length != 5) {
                 throw "Missing arguments in Envelope constructor";
             }
+            if(typeof what !== 'string'){
+                throw "String expected in variable what in Envelope constructor";
+            }
             if(who instanceof User === false){
                 throw "User expected in Envelope constructor";
+            }
+            if(lastDay instanceof Date === false) {
+                throw "Date expected in parameter lastDay in Envelope constructor";
+            }
+            if(eventDate instanceof Date === false) {
+                throw "Date expected in parameter eventDAte in Envelope constructor";
+            }
+            if(typeof where !== 'string'){
+                throw "String expected in variable where in Envelope constructor";
             }
 
             this._id = ++this.nextId.id;
@@ -40,6 +52,9 @@
          * @return {Boolean}          
          */
         Envelope.prototype.hasContributor = function (contributor) {
+            if(contributor instanceof User === false) {
+                throw 'User exepcted in contributor variable in Envelope::hasContributor';
+            }
             return this.contributors.indexOf(contributor) === -1 ? false : true;
         };
 
