@@ -2,11 +2,14 @@ describe('User',function () {
 
 	var User;
 	var Bday;
+	var Envelope;
 
 	beforeEach(module('myUsers'));
-	beforeEach(inject(function (_User_,_Bday_){
+
+	beforeEach(inject(function (_User_,_Bday_,_Envelope_){
 		User = _User_;
 		Bday = _Bday_;
+		Envelope = _Envelope_;
 	}));
 
 	describe('constructor', function (){
@@ -20,12 +23,34 @@ describe('User',function () {
 		});
 	});
 
-	describe('remove', function() {
+	describe('removeEnvelope', function() {
+		it('should have the right number of envelopes after removing one from its responsebilities', function() {
+			var sut = new User('id','name',new Bday(12,12));
+			var who = new User('id','name',new Bday(12,12));
+			var envelope1 = new Envelope('bday',who,new Date(),new Date(),'some desk');
+			sut.responsible.push(envelope1);
+			var envelope2 = new Envelope('bday',who,new Date(),new Date(),'some desk');
+			sut.responsible.push(envelope2);
+			expect(sut.responsible.length).toBe(2);
+			sut.removeEnvelope(envelope2);
+			expect(sut.responsible.length).toBe(1);
+		});
 
+		it('should give false when the envelop does not exist',function (){
+			var sut = new User('id','name',new Bday(12,12));
+			var who = new User('id','name',new Bday(12,12));
+			var envelope1 = new Envelope('bday',who,new Date(),new Date(),'some desk');
+			sut.responsible.push(envelope1);
+			var envelope2 = new Envelope('bday',who,new Date(),new Date(),'some desk');
+			expect(sut.removeEnvelope(envelope2)).toBe(false);
+		});
 	});
 
 	describe('getCurrentDate', function (){
-
+		it('should give the birthday date for this year right',function (){
+			var sut = new User('id','name',new Bday(12,12));
+			expect(sut.getCurrentBday()).toEqual(new Date(new Date().getFullYear(),12,12));
+		});
 	});
 	
 });

@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
 
-	angular.module("myUsers",['common']);
+	angular.module("myUsers",['common','myEnvelopes']);
 	
 })();

@@ -34,15 +34,16 @@
         /**
          * 
          * @param  {Envelope} envelope 
-         * @return {Envelope}          
+         * @return {Boolean}          
          */
         User.prototype.removeEnvelope = function (envelope) {
             var i = this.responsible.indexOf(envelope);
 
             if( i !== -1) {
                 this.responsible.splice(i,1);
+                return true;
             }
-            return envelope;
+            return false;
         };
 
         User.prototype.getCurrentBday = function () {
