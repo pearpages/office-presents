@@ -30,6 +30,7 @@ module.exports = function(config) {
         'src/birthdays/Birthday.js',
         'src/birthdays/birthdays.factory.js',
         'src/envelopes/services/envelopes.factory.js',
+        'src/common/filters/yes-no.filter.js',
         'src/**/*spec.js'
     ],
 
