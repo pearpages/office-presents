@@ -13,7 +13,7 @@
 		activate();
 
 		function activate() {
-			if(currentUser.get().role !== 'ADMIN') {
+			if(currentUser.getUser().role !== 'ADMIN') {
 				notifications.add('Wrong role','danger');
 				$state.go('home');
 			}
