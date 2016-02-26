@@ -10,18 +10,17 @@ describe('showAs',function () {
 	var $state;
 
 	beforeEach(module('myUsers'));
-	beforeEach(inject(function (_$controller_,_users_,_currentUser_,_notifications_,_$state_,_User_,_Bday_){
+	beforeEach(inject(function (_$controller_,_users_,_currentUser_,_notifications_,_$state_,_Bday_){
 		$controller = _$controller_;
 		currentUser = _currentUser_;
 		Bday = _Bday_;
-		User = _User_;
 		users = _users_;
 		notifications = _notifications_;
 		$state = _$state_;
 	}));
 
 	it('should show the logged user if there is no "showAs user" defined', function() {
-		var user = new User('ppages','Pere Pages',new Bday(12,12));
+		var user = users.make('ppages','Pere Pages',new Bday(12,12));
 		user.role = 'ADMIN';
 		currentUser.setUser(user);
 
@@ -31,11 +30,11 @@ describe('showAs',function () {
 	});
 
 	it('should show the "showAs user" if it exists already', function() {
-		var logged = new User('ppages','Pere Pages',new Bday(12,12));
+		var logged = users.make('ppages','Pere Pages',new Bday(12,12));
 		logged.role = 'ADMIN';
 		currentUser.setUser(logged);
 
-		var showAs = new User('pearpages','Another User',new Bday(12,12));
+		var showAs = users.make('pearpages','Another User',new Bday(12,12));
 		currentUser.setShowAs(showAs);
 
 		var ShowAsController = $controller('ShowAsController',{users:users,currentUser: currentUser,notifications: notifications,$state:$state});
@@ -43,8 +42,8 @@ describe('showAs',function () {
 		expect(ShowAsController.userid).toBe('pearpages');
 	});
 
-	it('should redirect to the home page if the logged user does not have the role admin', function() {
-		var logged = new User('ppages','Pere Pages',new Bday(12,12));
+	it('should redirect to the home page if the logged user does not have the role admin and notify you', function() {
+		var logged = users.make('ppages','Pere Pages',new Bday(12,12));
 		logged.role = 'NORMAL';
 		currentUser.setUser(logged);
 
@@ -52,11 +51,27 @@ describe('showAs',function () {
 
 		var ShowAsController = $controller('ShowAsController',{users:users,currentUser: currentUser,notifications: notifications,$state:$state});
 
-		// expect($state.go).toHaveBeenCalledWith(expectedState, expectedParams);
+		// expect($state.go).toHaveBeenCalledWith(expectedState, expectedParams); <-- as an example of the spy function with state
 		expect($state.go).toHaveBeenCalledWith('home');
+		expect(notifications.get()).toEqual([{message: 'Wrong role',type:'danger'}]);
 	});
 	
-	 
-	// test showAs function
+	it('should set a new user to be shown and notify it',function () {
+		// test showAs function
+		
+		var logged = users.make('ppages','Pere Pages',new Bday(12,12));
+		logged.role = 'ADMIN';
+		currentUser.setUser(logged);
+
+		var showAs = users.make('pearpages','Another User',new Bday(12,12));
+
+		var ShowAsController = $controller('ShowAsController',{users:users,currentUser: currentUser,notifications: notifications,$state:$state});
+
+		ShowAsController.showAs('pearpages');
+
+		expect(currentUser.get().id).toBe('pearpages');
+		expect(notifications.get()).toEqual([{message: 'User changed', type: 'success'}]);
+	});
+	
 
 });

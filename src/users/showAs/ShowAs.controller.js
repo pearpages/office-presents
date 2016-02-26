@@ -25,8 +25,8 @@
 			}
 		}
 
-		function showAs() {
-			var user = users.getUser(vm.userid);
+		function showAs(userid) {
+			var user = users.getUser(userid);
 			if(user !== null){
 				currentUser.setShowAs(user);
 				notifications.add('User changed','success');
