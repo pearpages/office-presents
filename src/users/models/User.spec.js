@@ -13,6 +13,12 @@ describe('User',function () {
 	}));
 
 	describe('constructor', function (){
+		it('should accept only the right params',function (){
+			expect(function(){new User()}).toThrow(new Error('String expected in variable id in User model constructor'));
+			expect(function(){new User('id')}).toThrow(new Error('String expected in variable name in User model constructor'));
+			expect(function(){new User('id','name')}).toThrow(new Error('Bday expected in variable bday in User model constructor'));
+		});
+
 		it('should initialize its properties well',function () {
 			var sut = new User('user','user',new Bday(12,12));
 			expect(sut.bdays).toEqual([]);

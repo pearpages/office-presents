@@ -13,13 +13,13 @@
          */
         var User = function(id,name,bday) {
             if(typeof id !== 'string') {
-                throw 'String expected in variable id in User model constructor';
+                throw new Error('String expected in variable id in User model constructor');
             }
             if(typeof name !== 'string') {
-                throw 'String expected in variable name in User model constructor';
+                throw new Error('String expected in variable name in User model constructor');
             }
             if(bday instanceof Bday === false) {
-                throw 'Bday expected in variable bday in User model constructor';
+                throw new Error('Bday expected in variable bday in User model constructor');
             }
             this.id = id;
             this.name = name;

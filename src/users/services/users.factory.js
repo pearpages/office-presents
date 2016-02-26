@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module("myUsers")
-        .factory('users', ['User', 'addResponsible','removeResponsible','addContribution','removeContribution', users]);
+        .factory('users', ['User', 'addResponsible', 'removeResponsible', 'addContribution', 'removeContribution', users]);
 
-    function users(User, addResponsible,removeResponsible,addContribution,removeContribution) {
+    function users(User, addResponsible, removeResponsible, addContribution, removeContribution) {
 
         var users = [];
 
@@ -15,7 +15,7 @@
             make: make
         };
 
-        function make(id,name,bday) {
+        function make(id, name, bday) {
             User.prototype.addResponsible = addResponsible;
             User.prototype.removeResponsible = removeResponsible;
             User.prototype.addContribution = addContribution;
@@ -52,8 +52,12 @@
                 return users[randomValue];
             } else {
                 var result = not;
-                while (result === not && users.length > 1) {
-                    result = users[Math.floor(Math.random() * users.length)];
+                if (users.length === 1 && users[0] === not) {
+                    return undefined;
+                } else {
+                    while (result === not) {
+                        result = users[Math.floor(Math.random() * users.length)];
+                    }
                 }
                 return result;
             }
@@ -68,8 +72,6 @@
             for (var i = users.length - 1; i >= 0; i--) {
                 if (users[i].id === userid) {
                     return users[i];
-                } else {
-                    // ...
                 }
             }
             return null;
