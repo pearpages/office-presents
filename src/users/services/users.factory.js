@@ -41,9 +41,12 @@
         /**
          * Get one random user form the list
          * @param  {User} not User that we do not want
-         * @return {User}
+         * @return {User} or {undefined}
          */
         function getOneRandom(not) {
+            if (not instanceof User === false && not !== undefined) {
+                throw new Error('not variable should be a User or undefined');
+            }
             if (not === undefined) {
                 var randomValue = Math.floor(Math.random() * users.length);
                 return users[randomValue];
@@ -65,6 +68,8 @@
             for (var i = users.length - 1; i >= 0; i--) {
                 if (users[i].id === userid) {
                     return users[i];
+                } else {
+                    // ...
                 }
             }
             return null;
