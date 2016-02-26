@@ -50,4 +50,11 @@ describe('currentUser',function (){
 		expect(currentUser.get()).toEqual(showAs);
 	});
 
+	it('should loggout', function (){
+		currentUser.loggout();
+		expect(currentUser.getUser()).toBe(undefined);
+		expect(currentUser.getShowAs()).toBe(undefined);
+		expect(currentUser.get()).toBe(undefined);
+	});
+
 });
