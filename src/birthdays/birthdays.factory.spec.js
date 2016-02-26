@@ -14,6 +14,12 @@ describe('birthday.factory',function() {
         Bday = _Bday_;
     }));
 
+    it('should check that the parameters are correct',function (){
+        expect(function(){birthdays.make()}).toThrow(new Error('User expected'));
+        expect(function(){birthdays.make(new User('id','name',new Bday(12,12)))}).toThrow(new Error('Date expected'));
+        expect(function(){birthdays.make(new User('id','name',new Bday(12,12)),new Date())}).toThrow(new Error('Envelope expected'));
+    });
+
     describe('make', function() {
     	it('Should return an empty array when there no users added yet', function () {
         expect(birthdays.getAll().length).toBe(0);
@@ -25,11 +31,13 @@ describe('birthday.factory',function() {
     	});
     });
 
-    it('should get a Birthday for a given id', function() {
+    it('should get a Birthday for a given id, if the id does not exist, return null', function() {
     	var birthday = birthdays.make(new User('id','name',new Bday(12,12)),new Date(),new Envelope('birthday',new User('id','name',new Bday(12,12)),new Date(), new Date(), 'desk'));
     	var birthday2 = birthdays.get(birthday._id);
 
     	expect(birthday).toBe(birthday2);
+
+        expect(birthdays.get(9999)).toBe(null);
     });
 
     it('should return all birthdays created', function (){

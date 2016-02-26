@@ -23,13 +23,13 @@
          */
         function make(user,bdayDate,envelope) {
             if(user instanceof User === false) {
-                throw 'User expected';
+                throw new Error('User expected');
             }
             if(bdayDate instanceof Date === false) {
-                throw 'Date expected';
+                throw new Error('Date expected');
             }
             if(envelope instanceof Envelope === false){
-                throw 'Envelope expected';
+                throw new Error('Envelope expected');
             }
             var bday = new Birthday(user,bdayDate,envelope);
             birthdays.push(bday);
