@@ -13,6 +13,12 @@ describe('birthday.value',function() {
         Bday = _Bday_;
     }));
 
+    it('should check the input parameters',function (){
+        expect(function (){ new Birthday}).toThrow(new Error('User expected in Birthday constructor'));
+        expect(function (){ new Birthday(new User('id','name',new Bday(12,12)))}).toThrow(new Error('Date expected in Birthday constructor'));
+        expect(function (){ new Birthday(new User('id','name',new Bday(12,12)),new Date())}).toThrow(new Error('Envelope expected in Birthday constructor'));
+    });
+
     it('A new Birthday should have valid parameters', function (){
         var sut = new Birthday(new User('id','name',new Bday(12,12)),new Date(),new Envelope('birthday',new User('id','name',new Bday(12,12)),new Date(),new Date(),'some desk'));
         expect(sut.date).toEqual(jasmine.any(Date));

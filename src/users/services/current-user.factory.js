@@ -22,6 +22,9 @@
 		 * @param {User} user
 		 */
 		function setUser(user) {
+			if (user instanceof User === false) {
+				throw new Error('user is not an instance of User');
+			}
 			currentUser = user;
 		}
 
@@ -35,6 +38,9 @@
 		 * @param  {User} user 
 		 */
 		function setShowAs(user) {
+			if(user instanceof User === false) {
+				throw new Error('user is not an instance of User');	
+			}
 			mockUser = user;
 		}
 
@@ -50,6 +56,10 @@
 			}
 		}
 
+		/**
+		 * 
+		 * @return {User} or {undefined}
+		 */
 		function getUser() {
 			return currentUser;
 		}

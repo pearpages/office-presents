@@ -13,14 +13,14 @@
          * @param {Envelope} envelope
          */
         var Birthday = function(user, date, envelope) {
-            if(date instanceof Date === false) {
-                throw 'Date expected in Birthday constructor';
-            }
             if(user instanceof User === false) {
-                throw 'User expected in Birthday constructor';
+                throw new Error('User expected in Birthday constructor');
+            }
+            if(date instanceof Date === false) {
+                throw new Error('Date expected in Birthday constructor');
             }
             if(envelope instanceof Envelope === false) {
-                throw 'Envelope expected in Birthday constructor';
+                throw new Error('Envelope expected in Birthday constructor');
             }
             this.date = date;
             this.envelope = envelope;
