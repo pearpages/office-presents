@@ -52,7 +52,7 @@
                 return users[randomValue];
             } else {
                 var result = not;
-                while (result === not) {
+                while (result === not && users.length > 1) {
                     result = users[Math.floor(Math.random() * users.length)];
                 }
                 return result;
