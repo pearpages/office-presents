@@ -25,18 +25,11 @@ module.exports = function(config) {
         'bower_components/ng-table/dist/ng-table.js',
         //src
         'src/**/*.module.js',
+        'src/**/models/!(*spec|*mock).js',
         'src/**/*.value.js',
-        'src/common/notification-area/notifications.factory.js',
-        'src/users/models/Bday.js',
-        'src/envelopes/models/Envelope.js',
-        'src/users/models/User.js',
-        'src/users/services/users.factory.js',
-        'src/users/services/current-user.factory.js',
-        'src/users/showAs/ShowAs.controller.js',
-        'src/birthdays/Birthday.js',
-        'src/birthdays/birthdays.factory.js',
-        'src/envelopes/services/envelopes.factory.js',
-        'src/common/filters/yes-no.filter.js',
+        'src/**/*.factory.js',
+        'src/**/*.filter.js',
+        'src/**/*.controller.js',
         //tests
         'src/**/*spec.js'
     ],
