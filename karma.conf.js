@@ -15,6 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+        //vendor
         'node_modules/angular/angular.js',
         'node_modules/angular-mocks/angular-mocks.js',
         'node_modules/jquery/dist/jquery.js',
@@ -22,6 +23,7 @@ module.exports = function(config) {
         'node_modules/angular-ui-router/release/angular-ui-router.js',
         'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
         'bower_components/ng-table/dist/ng-table.js',
+        //src
         'src/**/*.module.js',
         'src/**/*.value.js',
         'src/common/notification-area/notifications.factory.js',
@@ -35,6 +37,7 @@ module.exports = function(config) {
         'src/birthdays/birthdays.factory.js',
         'src/envelopes/services/envelopes.factory.js',
         'src/common/filters/yes-no.filter.js',
+        //tests
         'src/**/*spec.js'
     ],
 
@@ -47,13 +50,14 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        'src/**/!(*spec|*mock).js' : 'coverage'
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress','coverage'],
 
 
     // web server port
