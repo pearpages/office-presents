@@ -43,7 +43,19 @@ describe('showAs',function () {
 		expect(ShowAsController.userid).toBe('pearpages');
 	});
 
-	// if the logged user is not ADMIN
+	it('should redirect to the home page if the logged user does not have the role admin', function() {
+		var logged = new User('ppages','Pere Pages',new Bday(12,12));
+		logged.role = 'NORMAL';
+		currentUser.setUser(logged);
+
+		spyOn($state, 'go');
+
+		var ShowAsController = $controller('ShowAsController',{users:users,currentUser: currentUser,notifications: notifications,$state:$state});
+
+		// expect($state.go).toHaveBeenCalledWith(expectedState, expectedParams);
+		expect($state.go).toHaveBeenCalledWith('home');
+	});
+	
 	 
 	// test showAs function
 
