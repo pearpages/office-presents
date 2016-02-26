@@ -59,7 +59,7 @@
         /**
          * Get a user by its id
          * @param  {String} userid
-         * @return {User}
+         * @return {User} or {null}
          */
         function getUser(userid) {
             for (var i = users.length - 1; i >= 0; i--) {

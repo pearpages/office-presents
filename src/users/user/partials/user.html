@@ -1,5 +1,6 @@
 <h2>{{vm.user.name}}</h2>
-<div class="col-md-6">
+<div class="col-md-6" ng-if="vm.user === null">The user with this id does not exist.</div>
+<div class="col-md-6" ng-if="vm.user !== null">
 	<div class="well">
 		<h4>Info</h4>
 		<table class="table table-striped">
@@ -32,7 +33,7 @@
 	
 	
 </div>
-<div class="col-md-6">
+<div class="col-md-6" ng-if="vm.user !== null">
 	<div class="well">
 		<h4>Birthdays</h4>
 

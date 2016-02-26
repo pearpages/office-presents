@@ -10,8 +10,8 @@
 
         vm.user;
         vm.logged;
-        vm.save = save;
         vm.inputPresents;
+        vm.save = save;
 
         activate();
 
