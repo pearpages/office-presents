@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module("office-presents", ['ui.router','common','ngTable','myUsers','myEnvelopes','myBdays'])
+    angular.module("office-presents", ['ui.router','common','home','ngTable','myUsers','myEnvelopes','myBdays'])
     .run(function (notifications,mockData,users,currentUser) {
     	mockData.mock(20);
     	var user = users.getUser('PerePages');

@@ -34,6 +34,7 @@
             if (now <= candidate1) {
                 return candidate1;
             } else {
+                // TODO (pearpages) test with mockup dates for dates before and after the current system date
                 return candidate2;
             }
         };

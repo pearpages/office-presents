@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module("office-presents")
+    angular.module("home")
     .controller('HomeController',[HomeController]);
 
     function HomeController() {
