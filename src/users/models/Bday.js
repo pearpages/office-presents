@@ -1,12 +1,18 @@
+// TODO (pearpages) think of cases like February 29th
 (function() {
     'use strict';
 
     angular.module("myUsers")
     .factory('Bday',[bday]);
 
+    /**
+     *
+     * @returns {Bday}
+     */
     function bday() {
 
         var Bday = function (month,day) {
+            // TODO (pearpages) Make sure the day matches the month
             if(typeof month !== 'number'){
                 throw new Error('Number expected in variable month in myUsers::Bday constructor');
             }

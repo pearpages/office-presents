@@ -55,7 +55,7 @@
             if(contributor instanceof User === false) {
                 throw 'User exepcted in contributor variable in Envelope::hasContributor';
             }
-            return this.contributors.indexOf(contributor) === -1 ;
+            return this.contributors.indexOf(contributor) !== -1 ;
         };
 
         return Envelope;
