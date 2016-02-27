@@ -25,7 +25,7 @@ module.exports = function(config) {
         'bower_components/ng-table/dist/ng-table.js',
         //src
         'src/**/*.module.js',
-        'src/**/models/!(*spec|*mock).js',
+        'src/**/**/models/!(*spec|*mock).js',
         'src/**/*.value.js',
         'src/**/*.factory.js',
         'src/**/*.filter.js',
@@ -67,7 +67,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
 
     // start these browsers
@@ -77,10 +77,10 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultanous
-    concurrency: Infinity
+    concurrency: 1
   })
 }

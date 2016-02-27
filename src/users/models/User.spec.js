@@ -1,4 +1,5 @@
 describe('User',function () {
+	'use strict';
 
 	var User;
 	var Bday;
